@@ -11,6 +11,12 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { TopBar } from "../components/layout/TopBar";
+import { Header } from "../components/layout/Header";
+import { Footer } from "../components/layout/Footer";
+import { WhatsAppButton } from "../components/WhatsAppButton";
+import { ScrollToTop } from "../components/ScrollToTop";
+import { Toaster } from "../components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -77,16 +83,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Sandeep Mineral Industries | Premium Industrial Minerals" },
+      {
+        name: "description",
+        content:
+          "Sandeep Mineral Industries — leading manufacturer of baryte powder & ultra-fine calcium carbonate for plastics, paints, rubber & construction since 2005.",
+      },
+      { name: "author", content: "Sandeep Mineral Industries" },
+      { property: "og:title", content: "Sandeep Mineral Industries | Premium Industrial Minerals" },
+      {
+        property: "og:description",
+        content:
+          "High-performance industrial minerals engineered for purity, precision and consistency. Trusted supply partner since 2005.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,
@@ -118,8 +137,19 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="flex min-h-screen flex-col">
+        <TopBar />
+        <Header />
+        <main className="flex-1">
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+      <WhatsAppButton />
+      <ScrollToTop />
+      <Toaster position="top-center" richColors />
+
     </QueryClientProvider>
   );
 }
