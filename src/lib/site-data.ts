@@ -115,7 +115,7 @@ export const products: Product[] = [
 export const getProduct = (slug: string) => products.find((p) => p.slug === slug);
 
 export const WHATSAPP_URL =
-  "https://wa.me/917427068253?text=Hello%20Sandeep%20Mineral%20Industries,%20I%20would%20like%20to%20know%20more%20about%20your%20mineral%20products%20and%20bulk%20supply%20capabilities.";
+  "https://wa.me/918824857634?text=Hello%20Sandeep%20Mineral%20Industries,%20I%20would%20like%20to%20know%20more%20about%20your%20mineral%20products%20and%20bulk%20supply%20capabilities.";
 
 export const CONTACT = {
   phone: "+91 8824857634",
