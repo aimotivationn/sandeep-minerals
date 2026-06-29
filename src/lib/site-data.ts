@@ -118,8 +118,8 @@ export const WHATSAPP_URL =
   "https://wa.me/917427068253?text=Hello%20Sandeep%20Mineral%20Industries,%20I%20would%20like%20to%20know%20more%20about%20your%20mineral%20products%20and%20bulk%20supply%20capabilities.";
 
 export const CONTACT = {
-  phone: "+91 7427068253",
-  email: "namentorservices.005@gmail.com",
+  phone: "+91 8824857634",
+  email: "mentorservices.005@gmail.com",
   location: "Rajasthan, India",
   address: "H25-26, RIICO Industrial Area, Rajgarh, Alwar, Rajasthan – 301408, India",
 };
