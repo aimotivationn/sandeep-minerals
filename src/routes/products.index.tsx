@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, Search, Download } from "lucide-react";
+import { ArrowRight, Search, Download, CheckCircle2 } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CTABand } from "@/components/CTABand";
@@ -9,26 +9,31 @@ import { products } from "@/lib/site-data";
 export const Route = createFileRoute("/products/")({
   head: () => ({
     meta: [
-      { title: "Products | Sandeep Mineral Industries" },
+      { title: "Products | Barytes, Calcium Carbonate & Calcite — SMI" },
       {
         name: "description",
         content:
-          "Explore our range of industrial minerals: baryte powder, ultra-fine and super-fine calcium carbonate, and imported mineral powders with precise specifications.",
+          "Explore SMI micronised minerals: Barytes Powder, Calcium Carbonate, NAMO CARBSHINE ultra fine CaCO₃, White Pigment Opacifier, Calcite Powder, Calcium Oxide and Calcite Granules.",
       },
       { property: "og:title", content: "Products | Sandeep Mineral Industries" },
-      { property: "og:description", content: "Premium industrial mineral grades with full technical specifications." },
+      { property: "og:description", content: "Seven micronised mineral families with full technical specifications." },
+      { property: "og:url", content: "/products" },
+      { property: "og:type", content: "website" },
     ],
+    links: [{ rel: "canonical", href: "/products" }],
   }),
   component: Products,
 });
 
 function Products() {
   const [search, setSearch] = useState("");
+  const q = search.toLowerCase();
   const filtered = search
     ? products.filter(
         (p) =>
-          p.name.toLowerCase().includes(search.toLowerCase()) ||
-          p.short.toLowerCase().includes(search.toLowerCase()),
+          p.name.toLowerCase().includes(q) ||
+          p.short.toLowerCase().includes(q) ||
+          p.applications.some((a) => a.toLowerCase().includes(q)),
       )
     : products;
 
@@ -37,8 +42,8 @@ function Products() {
       <PageHero
         eyebrow="Our Products"
         crumb="Products"
-        title="Precision mineral grades engineered for performance"
-        subtitle="Every grade is processed for purity, brightness and tight particle-size control — backed by full technical specifications and reliable bulk supply."
+        title="Micronised mineral grades engineered for performance"
+        subtitle="Every grade is produced on German technology lines for purity, brightness and tight particle-size control — backed by full technical documentation and reliable bulk supply."
       />
 
       <section className="bg-background py-20 md:py-28">
@@ -49,7 +54,7 @@ function Products() {
               <input
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search products..."
+                placeholder="Search products or applications..."
                 className="w-full rounded-full border border-border bg-card py-3 pl-11 pr-4 text-sm outline-none transition-colors focus:border-gold"
               />
             </div>
@@ -66,10 +71,10 @@ function Products() {
                   <div className="aspect-[16/10] overflow-hidden md:aspect-auto md:h-full">
                     <img
                       src={p.image}
-                      alt={p.name}
+                      alt={`${p.name} — micronised mineral by Sandeep Mineral Industries`}
                       loading="lazy"
-                      width={800}
-                      height={600}
+                      width={1200}
+                      height={900}
                       className="h-full w-full object-cover"
                     />
                   </div>
@@ -78,6 +83,29 @@ function Products() {
                     <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                       {p.description}
                     </p>
+
+                    {p.grades && (
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        {p.grades.map((g) => (
+                          <span
+                            key={g}
+                            className="rounded-full border border-border bg-muted px-3 py-1 text-xs font-semibold text-navy"
+                          >
+                            {g}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+                      {p.benefits.slice(0, 4).map((b) => (
+                        <li key={b} className="flex items-start gap-2 text-sm text-foreground">
+                          <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-gold" />
+                          {b}
+                        </li>
+                      ))}
+                    </ul>
+
                     <div className="mt-6 flex flex-wrap gap-3">
                       <Link
                         to="/products/$slug"
@@ -87,7 +115,7 @@ function Products() {
                         View Details <ArrowRight className="h-4 w-4" />
                       </Link>
                       <Link
-                        to="/contact"
+                        to="/downloads"
                         className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-semibold text-navy transition-colors hover:border-gold hover:text-gold"
                       >
                         <Download className="h-4 w-4" /> Brochure
