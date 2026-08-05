@@ -11,9 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as QualityRouteImport } from './routes/quality'
+import { Route as OurGoalRouteImport } from './routes/our-goal'
 import { Route as ManufacturingRouteImport } from './routes/manufacturing'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as ExportPackagingRouteImport } from './routes/export-packaging'
+import { Route as DownloadsRouteImport } from './routes/downloads'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
@@ -31,6 +34,11 @@ const QualityRoute = QualityRouteImport.update({
   path: '/quality',
   getParentRoute: () => rootRouteImport,
 } as any)
+const OurGoalRoute = OurGoalRouteImport.update({
+  id: '/our-goal',
+  path: '/our-goal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ManufacturingRoute = ManufacturingRouteImport.update({
   id: '/manufacturing',
   path: '/manufacturing',
@@ -44,6 +52,16 @@ const IndustriesRoute = IndustriesRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExportPackagingRoute = ExportPackagingRouteImport.update({
+  id: '/export-packaging',
+  path: '/export-packaging',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DownloadsRoute = DownloadsRouteImport.update({
+  id: '/downloads',
+  path: '/downloads',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -82,9 +100,12 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
+  '/export-packaging': typeof ExportPackagingRoute
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRoute
   '/manufacturing': typeof ManufacturingRoute
+  '/our-goal': typeof OurGoalRoute
   '/quality': typeof QualityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -95,9 +116,12 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
+  '/export-packaging': typeof ExportPackagingRoute
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRoute
   '/manufacturing': typeof ManufacturingRoute
+  '/our-goal': typeof OurGoalRoute
   '/quality': typeof QualityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -109,9 +133,12 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRoute
+  '/export-packaging': typeof ExportPackagingRoute
   '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRoute
   '/manufacturing': typeof ManufacturingRoute
+  '/our-goal': typeof OurGoalRoute
   '/quality': typeof QualityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -124,9 +151,12 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/contact'
+    | '/downloads'
+    | '/export-packaging'
     | '/faq'
     | '/industries'
     | '/manufacturing'
+    | '/our-goal'
     | '/quality'
     | '/sitemap.xml'
     | '/products/$slug'
@@ -137,9 +167,12 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/contact'
+    | '/downloads'
+    | '/export-packaging'
     | '/faq'
     | '/industries'
     | '/manufacturing'
+    | '/our-goal'
     | '/quality'
     | '/sitemap.xml'
     | '/products/$slug'
@@ -150,9 +183,12 @@ export interface FileRouteTypes {
     | '/about'
     | '/blog'
     | '/contact'
+    | '/downloads'
+    | '/export-packaging'
     | '/faq'
     | '/industries'
     | '/manufacturing'
+    | '/our-goal'
     | '/quality'
     | '/sitemap.xml'
     | '/products/$slug'
@@ -164,9 +200,12 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
+  DownloadsRoute: typeof DownloadsRoute
+  ExportPackagingRoute: typeof ExportPackagingRoute
   FaqRoute: typeof FaqRoute
   IndustriesRoute: typeof IndustriesRoute
   ManufacturingRoute: typeof ManufacturingRoute
+  OurGoalRoute: typeof OurGoalRoute
   QualityRoute: typeof QualityRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
@@ -189,6 +228,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QualityRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/our-goal': {
+      id: '/our-goal'
+      path: '/our-goal'
+      fullPath: '/our-goal'
+      preLoaderRoute: typeof OurGoalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/manufacturing': {
       id: '/manufacturing'
       path: '/manufacturing'
@@ -208,6 +254,20 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/export-packaging': {
+      id: '/export-packaging'
+      path: '/export-packaging'
+      fullPath: '/export-packaging'
+      preLoaderRoute: typeof ExportPackagingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/downloads': {
+      id: '/downloads'
+      path: '/downloads'
+      fullPath: '/downloads'
+      preLoaderRoute: typeof DownloadsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -260,9 +320,12 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
+  DownloadsRoute: DownloadsRoute,
+  ExportPackagingRoute: ExportPackagingRoute,
   FaqRoute: FaqRoute,
   IndustriesRoute: IndustriesRoute,
   ManufacturingRoute: ManufacturingRoute,
+  OurGoalRoute: OurGoalRoute,
   QualityRoute: QualityRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ProductsSlugRoute: ProductsSlugRoute,
