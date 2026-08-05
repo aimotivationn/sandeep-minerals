@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { toast } from "sonner";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { CONTACT } from "@/lib/site-data";
+import { CONTACT, enquiryTypes } from "@/lib/site-data";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/contact")({
   component: Contact,
 });
 
-const inquiryTypes = ["General Inquiry", "Request a Quote", "Business / Bulk Enquiry", "Technical Support"];
+const inquiryTypes = enquiryTypes;
 
 function Contact() {
   const [submitting, setSubmitting] = useState(false);

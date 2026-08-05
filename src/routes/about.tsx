@@ -1,41 +1,35 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  Target,
-  Eye,
-  Gem,
-  CheckCircle2,
-  Factory,
-  Globe2,
-  ArrowRight,
-} from "lucide-react";
+import { Target, Eye, Gem, CheckCircle2, Factory, Globe2, ArrowRight, Mountain, Cog } from "lucide-react";
 import aboutImg from "@/assets/about-quarry.jpg";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CTABand } from "@/components/CTABand";
+import { JourneyTimeline } from "@/components/JourneyTimeline";
+import { IsoBadge } from "@/components/IsoBadge";
+import { overviewParagraphs, highlights, sourcing, COMPANY } from "@/lib/site-data";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us | Sandeep Mineral Industries" },
+      { title: "About SMI | Micronised Mineral Manufacturer Since 2005" },
       {
         name: "description",
         content:
-          "Learn about Sandeep Mineral Industries — a leading manufacturer of baryte powder and calcium carbonate with advanced processing, precision and global supply capability.",
+          "Sandeep Mineral Industries (SMI) manufactures premium micronised minerals from three Rajasthan plants with 36,000 MT annual capacity and German processing technology.",
       },
-      { property: "og:title", content: "About Sandeep Mineral Industries" },
-      { property: "og:description", content: "Our mission, vision, values and manufacturing excellence." },
+      { property: "og:title", content: "About Sandeep Mineral Industries (SMI)" },
+      {
+        property: "og:description",
+        content:
+          "Established 2005. Three plants, 36,000 MT annual capacity, owned mines and ISO 9001:2015 certified quality.",
+      },
+      { property: "og:url", content: "/about" },
+      { property: "og:type", content: "article" },
     ],
+    links: [{ rel: "canonical", href: "/about" }],
   }),
   component: About,
 });
-
-const timeline = [
-  { year: "2005", title: "Founded", text: "Sandeep Mineral Industries established in Rajasthan with a single processing line." },
-  { year: "2010", title: "Capacity Expansion", text: "Added micronizing technology and launched ultra-fine calcium carbonate grades." },
-  { year: "2016", title: "Second Unit", text: "Commissioned our Makrana facility to serve growing paint and polymer demand." },
-  { year: "2021", title: "Third Unit & Exports", text: "Opened Abu Road plant and began supplying international markets." },
-  { year: "2026", title: "500+ Clients", text: "Trusted by hundreds of manufacturers across plastics, paints, rubber & construction." },
-];
 
 const values = [
   { icon: Gem, title: "Quality First", text: "Uncompromising standards in purity, brightness and particle precision." },
@@ -44,90 +38,162 @@ const values = [
   { icon: Factory, title: "Innovation", text: "Continuous investment in processing technology and capability." },
 ];
 
-const whyUs = [
-  "Advanced micronizing & processing technology",
-  "Strict particle-size precision control",
-  "Certified purity and consistency",
-  "Three manufacturing units for assured supply",
-  "Export-ready logistics & packaging",
-  "Dedicated technical support team",
+const facts = [
+  { label: "Company Name", value: COMPANY.name },
+  { label: "Trade Name", value: COMPANY.tradeName },
+  { label: "Established", value: COMPANY.established },
+  { label: "Industry", value: COMPANY.industry },
+  { label: "Headquarters", value: COMPANY.headquarters },
 ];
 
 function About() {
   return (
     <>
       <PageHero
-        eyebrow="About Us"
+        eyebrow="About SMI"
         crumb="About"
-        title="A premium mineral partner built on precision and trust"
-        subtitle="Sandeep Mineral Industries is a leading manufacturer and supplier of high-performance mineral products serving global industries since 2005."
+        title="A leading manufacturer of premium micronised minerals"
+        subtitle="Established in 2005, Sandeep Mineral Industries manufactures world-class micronised minerals from three advanced plants across Rajasthan under the trusted trade name SMI."
       />
 
       {/* OVERVIEW */}
       <section className="bg-background py-20 md:py-28">
-        <div className="container-px grid items-center gap-14 lg:grid-cols-2">
+        <div className="container-px grid items-start gap-14 lg:grid-cols-2">
           <Reveal>
             <div className="overflow-hidden rounded-2xl shadow-elevated">
               <img
                 src={aboutImg}
-                alt="Limestone quarry operations"
+                alt="Limestone mining operations supplying Sandeep Mineral Industries"
                 loading="lazy"
                 width={1000}
                 height={700}
                 className="h-full w-full object-cover"
               />
             </div>
+            <div className="card-elegant mt-6 divide-y divide-border">
+              {facts.map((f) => (
+                <div key={f.label} className="flex items-center justify-between gap-4 px-6 py-3.5 text-sm">
+                  <span className="font-medium text-muted-foreground">{f.label}</span>
+                  <span className="text-right font-semibold text-navy">{f.value}</span>
+                </div>
+              ))}
+            </div>
           </Reveal>
           <Reveal delay={0.1}>
             <span className="eyebrow">Company Overview</span>
-            <h2 className="mt-3 text-3xl md:text-4xl">Engineering minerals that elevate products</h2>
+            <h2 className="mt-3 text-3xl md:text-4xl">Mine to micron, engineered in Rajasthan</h2>
             <div className="mt-5 space-y-4 text-base leading-relaxed text-muted-foreground">
-              <p>
-                Sandeep Mineral Industries is a leading manufacturer and supplier of high-performance
-                mineral products, specializing in baryte powder, ultra-fine calcium carbonate,
-                super-fine calcium carbonate, and imported mineral powders.
-              </p>
-              <p>
-                We serve industries including plastics, paints, coatings, rubber, construction, and
-                other industrial applications.
-              </p>
-              <p>
-                With advanced processing technology and a strong focus on particle size precision,
-                purity, and consistency, our products are designed to enhance performance, durability,
-                and cost efficiency.
-              </p>
+              {overviewParagraphs.map((p) => (
+                <p key={p}>{p}</p>
+              ))}
+            </div>
+            <div className="mt-8">
+              <IsoBadge />
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* TIMELINE */}
+      {/* HIGHLIGHTS */}
+      <section className="bg-navy py-20 md:py-24">
+        <div className="container-px">
+          <div className="mx-auto max-w-2xl text-center">
+            <Reveal>
+              <span className="eyebrow">Company Highlights</span>
+              <h2 className="mt-3 text-3xl text-primary-foreground md:text-4xl">
+                Scale, certification and reach
+              </h2>
+            </Reveal>
+          </div>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {highlights.map((h, i) => (
+              <Reveal key={h.label} delay={i * 0.07}>
+                <div className="h-full rounded-2xl border border-primary-foreground/12 bg-primary-foreground/5 p-7 transition-transform duration-300 hover:-translate-y-1.5">
+                  <div className="font-display text-3xl font-extrabold text-gold">{h.value}</div>
+                  <div className="mt-2 text-sm font-medium uppercase tracking-wider text-primary-foreground/70">
+                    {h.label}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OUR JOURNEY */}
       <section className="bg-muted py-20 md:py-28">
         <div className="container-px">
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="eyebrow">Our Journey</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">Two decades of growth</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl">2005 → 2017 → 2024 → Future Expansion</h2>
             </Reveal>
           </div>
-          <div className="mt-14 space-y-5 md:space-y-0">
-            <div className="relative grid gap-5 md:grid-cols-5">
-              {timeline.map((t, i) => (
-                <Reveal key={t.year} delay={i * 0.08}>
-                  <div className="card-elegant h-full p-6">
-                    <div className="font-display text-2xl font-extrabold text-gold">{t.year}</div>
-                    <h3 className="mt-2 text-base">{t.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.text}</p>
-                  </div>
-                </Reveal>
-              ))}
+          <JourneyTimeline />
+        </div>
+      </section>
+
+      {/* RAW MATERIAL SOURCING */}
+      <section className="bg-background py-20 md:py-28">
+        <div className="container-px">
+          <div className="mx-auto max-w-2xl text-center">
+            <Reveal>
+              <span className="eyebrow">Raw Material Sourcing</span>
+              <h2 className="mt-3 text-3xl md:text-4xl">Quality controlled from mine to micron</h2>
+              <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+                Owning our mining source and raw material processing unit means we control purity,
+                brightness and consistency at every stage — long before the mineral reaches a
+                micronising mill.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="mt-14 grid items-stretch gap-6 lg:grid-cols-[1fr_auto_1fr]">
+            <Reveal>
+              <div className="card-elegant h-full p-8">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/10 text-gold">
+                  <Mountain className="h-7 w-7" />
+                </div>
+                <span className="mt-5 block text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+                  Step 01
+                </span>
+                <h3 className="mt-2 text-xl">{sourcing.mine.title}</h3>
+                <ul className="mt-4 space-y-1 text-sm text-muted-foreground">
+                  {sourcing.mine.lines.map((l) => (
+                    <li key={l}>{l}</li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            <div className="flex items-center justify-center">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-navy text-primary-foreground">
+                <ArrowRight className="h-5 w-5 text-gold" />
+              </div>
             </div>
+
+            <Reveal delay={0.1}>
+              <div className="card-elegant h-full p-8">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-navy/5 text-navy">
+                  <Cog className="h-7 w-7" />
+                </div>
+                <span className="mt-5 block text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+                  Step 02
+                </span>
+                <h3 className="mt-2 text-xl">{sourcing.processing.title}</h3>
+                <ul className="mt-4 space-y-1 text-sm text-muted-foreground">
+                  {sourcing.processing.lines.map((l) => (
+                    <li key={l}>{l}</li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* MISSION / VISION */}
-      <section className="bg-background py-20 md:py-28">
+      <section className="bg-muted py-20 md:py-28">
         <div className="container-px grid gap-6 md:grid-cols-2">
           <Reveal>
             <div className="card-elegant h-full p-9">
@@ -136,7 +202,7 @@ function About() {
               </div>
               <h3 className="mt-5 text-2xl">Our Mission</h3>
               <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                To deliver consistently superior industrial minerals that enhance our customers'
+                To deliver consistently superior micronised minerals that enhance our customers'
                 products — combining technical precision, reliable supply and genuine partnership.
               </p>
             </div>
@@ -148,8 +214,8 @@ function About() {
               </div>
               <h3 className="mt-5 text-2xl">Our Vision</h3>
               <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                To be a globally recognised mineral manufacturer, setting the benchmark for purity,
-                precision and trust across domestic and international markets.
+                To become a Global Leader in Micronised Mineral Manufacturing, setting the benchmark
+                for purity, precision and trust across domestic and international markets.
               </p>
             </div>
           </Reveal>
@@ -157,7 +223,7 @@ function About() {
       </section>
 
       {/* VALUES */}
-      <section className="bg-muted py-20 md:py-28">
+      <section className="bg-background py-20 md:py-28">
         <div className="container-px">
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
@@ -178,36 +244,14 @@ function About() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* WHY CHOOSE US */}
-      <section className="bg-background py-20 md:py-28">
-        <div className="container-px grid items-center gap-14 lg:grid-cols-2">
-          <Reveal>
-            <span className="eyebrow">Why Choose Us</span>
-            <h2 className="mt-3 text-3xl md:text-4xl">Manufacturing excellence & global supply</h2>
-            <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              From raw material selection to final packaging, every stage is engineered for
-              performance — giving you a dependable, premium supply partner at scale.
-            </p>
+          <div className="mt-12 text-center">
             <Link
-              to="/manufacturing"
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-navy-dark"
+              to="/our-goal"
+              className="inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-sm font-semibold text-primary-foreground transition-all hover:bg-navy-dark"
             >
-              Explore Manufacturing <ArrowRight className="h-4 w-4" />
+              Read Our Goal <ArrowRight className="h-4 w-4" />
             </Link>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <ul className="grid gap-4 sm:grid-cols-2">
-              {whyUs.map((w) => (
-                <li key={w} className="flex items-start gap-3 rounded-xl bg-muted p-4">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
-                  <span className="text-sm font-medium text-foreground">{w}</span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
+          </div>
         </div>
       </section>
 
