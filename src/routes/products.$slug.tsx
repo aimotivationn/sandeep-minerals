@@ -14,7 +14,7 @@ import {
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CTABand } from "@/components/CTABand";
-import { getProduct, products, WHATSAPP_URL } from "@/lib/site-data";
+import { getProduct, products, WHATSAPP_URL, type Product } from "@/lib/site-data";
 
 export const Route = createFileRoute("/products/$slug")({
   loader: ({ params }) => {
@@ -118,7 +118,7 @@ const comparison = [
 ];
 
 function ProductDetail() {
-  const { product } = Route.useLoaderData();
+  const { product } = Route.useLoaderData() as { product: Product };
   const others = products.filter((p) => p.slug !== product.slug).slice(0, 3);
   const isNamo = product.slug === "namo-carbshine";
 
