@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X, ChevronRight } from "lucide-react";
 import logo from "@/assets/logo.jpg";
+
 const nav = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
@@ -37,27 +38,29 @@ export function Header() {
           : "bg-background"
       }`}
     >
- <Link to="/" className="flex items-center gap-3">
-  <img
-    src={logo}
-    alt="Sandeep Mineral Industries"
-    className="h-14 w-auto object-contain"
-  />
+      {/* This wrapper was missing — it's what was causing the extra
+          unmatched </div> and the broken row layout */}
+      <div className="container-px flex h-20 items-center justify-between">
+        <Link to="/" className="flex items-center gap-3">
+          <img
+            src={logo}
+            alt="Sandeep Mineral Industries"
+            className="h-14 w-auto object-contain"
+          />
+          <span className="leading-tight">
+            <span className="block font-display text-base font-bold text-navy">
+              Sandeep Mineral
+            </span>
+            <span className="block text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              Industries
+            </span>
+          </span>
+        </Link>
 
-  <span className="leading-tight">
-    <span className="block font-display text-base font-bold text-navy">
-      Sandeep Mineral
-    </span>
-
-    <span className="block text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-      Industries
-    </span>
-  </span>
-</Link>
-      
-      <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {nav.map((item) => {
-            const active = item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
+            const active =
+              item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
             return (
               <Link
                 key={item.to}
