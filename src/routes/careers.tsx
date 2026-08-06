@@ -21,7 +21,10 @@ import { Reveal } from "@/components/Reveal";
 import { CTABand } from "@/components/CTABand";
 import careersImg from "@/assets/careers-team.jpg";
 
+// CHANGE: HR_EMAIL is now only used for the "Contact HR" mailto link (unchanged section),
+// NOT for the application form anymore. Added a separate constant for the FormSubmit endpoint.
 const HR_EMAIL = "aimotivation010@gmail.com";
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/Sandeepminerals@yahoo.co.in";
 
 /** Future-ready: add job objects here and the openings section renders them automatically. */
 interface JobOpening {
@@ -83,40 +86,50 @@ export const Route = createFileRoute("/careers")({
 function Careers() {
   const formRef = useRef<HTMLFormElement>(null);
   const [submitted, setSubmitted] = useState(false);
+  // CHANGE: track in-flight submission state so we can disable the button / show feedback
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  // CHANGE: handleSubmit no longer builds a mailto body or sets window.location.href.
+  // It now does a fetch() POST to FormSubmit with the form's own FormData (which
+  // automatically includes the uploaded resume file because enctype is multipart/form-data).
+  // This keeps the user on the page — no email client is ever opened.
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    const get = (k: string) => String(fd.get(k) ?? "").trim();
-    const name = get("name");
+    const form = e.currentTarget;
+    const fd = new FormData(form);
 
-    const body = [
-      `Applicant Name: ${name}`,
-      `Email: ${get("email")}`,
-      `Phone Number: ${get("phone")}`,
-      `Current City: ${get("city")}`,
-      `Highest Qualification: ${get("qualification")}`,
-      `Years of Experience: ${get("experience")}`,
-      `Area of Interest: ${get("interest")}`,
-      "",
-      "Cover Message:",
-      get("message"),
-      "",
-      "— Submitted from the Sandeep Mineral Industries careers page.",
-      "(Please attach your resume to this email before sending.)",
-    ].join("\n");
+    setIsSubmitting(true);
+    try {
+      const response = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: "POST",
+        body: fd,
+        headers: {
+          // Ask FormSubmit to respond with JSON instead of redirecting,
+          // so we can handle success/error entirely in React.
+          Accept: "application/json",
+        },
+      });
 
-    window.location.href = `mailto:${HR_EMAIL}?subject=${encodeURIComponent(
-      `New Career Application - ${name}`,
-    )}&body=${encodeURIComponent(body)}`;
+      if (!response.ok) {
+        throw new Error("FormSubmit request failed");
+      }
 
-    setSubmitted(true);
-    toast.success("Application prepared — please attach your resume and send the email.");
+      // CHANGE: replaced the old "please attach your resume and send the email" toast
+      // with a simple success toast — no manual steps left for the user.
+      toast.success("Your application has been submitted successfully.");
+      setSubmitted(true);
+    } catch (error) {
+      // CHANGE: new error handling block (didn't exist before, since mailto couldn't "fail").
+      console.error("Application submission error:", error);
+      toast.error("Unable to submit your application. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <>
-      {/* HERO */}
+      {/* HERO — unchanged */}
       <section className="relative overflow-hidden bg-muted">
         <img
           src={careersImg}
@@ -138,13 +151,13 @@ function Careers() {
               contribute to the future of India's mineral manufacturing industry.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
+              
                 href="#apply"
                 className="inline-flex items-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-navy-dark"
               >
                 Submit Your Resume <Send className="h-4 w-4" />
               </a>
-              <a
+              
                 href="#hr"
                 className="inline-flex items-center gap-2 rounded-full border border-navy/20 bg-card px-7 py-3.5 text-sm font-semibold text-navy transition-all hover:border-gold hover:text-gold"
               >
@@ -155,7 +168,7 @@ function Careers() {
         </div>
       </section>
 
-      {/* WHY JOIN US */}
+      {/* WHY JOIN US — unchanged */}
       <section className="bg-background py-20 md:py-28">
         <div className="container-px">
           <Reveal className="max-w-2xl">
@@ -178,7 +191,7 @@ function Careers() {
         </div>
       </section>
 
-      {/* CURRENT OPPORTUNITIES */}
+      {/* CURRENT OPPORTUNITIES — unchanged */}
       <section className="bg-muted py-20 md:py-28">
         <div className="container-px">
           <Reveal className="max-w-2xl">
@@ -195,7 +208,7 @@ function Careers() {
                       {job.department} · {job.location} · {job.type}
                     </p>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{job.summary}</p>
-                    <a
+                    
                       href="#apply"
                       className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-gold"
                     >
@@ -246,10 +259,11 @@ function Careers() {
               <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-navy/5 text-navy">
                 <FileText className="h-5 w-5" />
               </div>
+              {/* CHANGE: copy updated — no longer tells the user to attach the resume
+                  themselves, since the file now uploads directly with the form. */}
               <p className="text-sm leading-relaxed text-muted-foreground">
                 Accepted resume formats: <span className="font-medium text-navy">PDF, DOC, DOCX</span>.
-                Your email application opens with all details filled in — simply attach the resume
-                file and send.
+                Your resume is uploaded and sent directly to our HR team — no email client required.
               </p>
             </div>
           </Reveal>
@@ -279,8 +293,25 @@ function Careers() {
                 </button>
               </div>
             ) : (
-              <form ref={formRef} onSubmit={handleSubmit} className="card-elegant space-y-5 p-8">
+              // CHANGE: form now points at FormSubmit's endpoint with POST + multipart encoding,
+              // and includes the required FormSubmit hidden config fields. The `action`/`method`
+              // are kept for graceful no-JS fallback; onSubmit still intercepts for the SPA flow.
+              <form
+                ref={formRef}
+                onSubmit={handleSubmit}
+                action={FORMSUBMIT_ENDPOINT}
+                method="POST"
+                encType="multipart/form-data"
+                className="card-elegant space-y-5 p-8"
+              >
                 <h3 className="text-xl">Application form</h3>
+
+                {/* CHANGE: FormSubmit configuration hidden inputs (new) */}
+                <input type="hidden" name="_subject" value="New Career Application" />
+                <input type="hidden" name="_captcha" value="true" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_next" value="/application-success" />
+
                 <div className="grid gap-5 sm:grid-cols-2">
                   <Field label="Full Name" name="name" required />
                   <Field label="Email Address" name="email" type="email" required />
@@ -324,9 +355,10 @@ function Careers() {
                 <div className="flex flex-wrap gap-3 pt-1">
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-navy-dark"
+                    disabled={isSubmitting}
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-navy-dark disabled:cursor-not-allowed disabled:opacity-70"
                   >
-                    Submit Application <Send className="h-4 w-4" />
+                    {isSubmitting ? "Submitting..." : "Submit Application"} <Send className="h-4 w-4" />
                   </button>
                   <button
                     type="reset"
@@ -341,7 +373,7 @@ function Careers() {
         </div>
       </section>
 
-      {/* INTERNSHIPS + CONTACT HR */}
+      {/* INTERNSHIPS + CONTACT HR — unchanged (this section's mailto is kept intentionally per requirements) */}
       <section className="bg-muted py-20 md:py-28">
         <div className="container-px grid gap-8 lg:grid-cols-2">
           <Reveal>
@@ -358,7 +390,7 @@ function Careers() {
                 Interested candidates are encouraged to submit their resumes through the application
                 form.
               </p>
-              <a
+              
                 href="#apply"
                 className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-gold"
               >
@@ -377,14 +409,14 @@ function Careers() {
                 If you have any questions regarding careers or internships, feel free to contact our
                 HR team.
               </p>
-              <a
+              
                 href={`mailto:${HR_EMAIL}`}
                 className="mt-5 inline-block break-all text-sm font-semibold text-navy underline-offset-4 hover:text-gold hover:underline"
               >
                 {HR_EMAIL}
               </a>
               <div className="mt-6">
-                <a
+                
                   href={`mailto:${HR_EMAIL}?subject=${encodeURIComponent("Careers Enquiry")}`}
                   className="inline-flex items-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-navy-dark"
                 >
