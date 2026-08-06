@@ -47,6 +47,7 @@ export function Footer() {
               { label: "Download Center", to: "/downloads" },
               { label: "Blog", to: "/blog" },
               { label: "FAQ", to: "/faq" },
+              { label: "Careers", to: "/careers" },
               { label: "Contact", to: "/contact" },
             ].map((l) => (
               <li key={l.to}>
