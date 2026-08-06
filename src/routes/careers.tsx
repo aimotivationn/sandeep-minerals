@@ -21,7 +21,7 @@ import { Reveal } from "@/components/Reveal";
 import { CTABand } from "@/components/CTABand";
 import careersImg from "@/assets/careers-team.jpg";
 
-const HR_EMAIL = "Sandeepminerals@yahoo.co.in";
+const HR_EMAIL = "aimotivation010@gmail.com";
 
 /** Future-ready: add job objects here and the openings section renders them automatically. */
 interface JobOpening {
