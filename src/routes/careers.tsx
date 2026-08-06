@@ -24,7 +24,7 @@ import careersImg from "@/assets/careers-team.jpg";
 // CHANGE: HR_EMAIL is now only used for the "Contact HR" mailto link (unchanged section),
 // NOT for the application form anymore. Added a separate constant for the FormSubmit endpoint.
 const HR_EMAIL = "aimotivation010@gmail.com";
-const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/Sandeepminerals@yahoo.co.in";
+const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/aimotivation010@gmail.com";
 
 /** Future-ready: add job objects here and the openings section renders them automatically. */
 interface JobOpening {
