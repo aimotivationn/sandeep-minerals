@@ -151,13 +151,13 @@ function Careers() {
               contribute to the future of India's mineral manufacturing industry.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              
+              <a
                 href="#apply"
                 className="inline-flex items-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-navy-dark"
               >
                 Submit Your Resume <Send className="h-4 w-4" />
               </a>
-              
+              <a
                 href="#hr"
                 className="inline-flex items-center gap-2 rounded-full border border-navy/20 bg-card px-7 py-3.5 text-sm font-semibold text-navy transition-all hover:border-gold hover:text-gold"
               >
@@ -208,7 +208,7 @@ function Careers() {
                       {job.department} · {job.location} · {job.type}
                     </p>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{job.summary}</p>
-                    
+                    <a
                       href="#apply"
                       className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-gold"
                     >
@@ -390,7 +390,7 @@ function Careers() {
                 Interested candidates are encouraged to submit their resumes through the application
                 form.
               </p>
-              
+              <a
                 href="#apply"
                 className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-gold"
               >
@@ -409,14 +409,14 @@ function Careers() {
                 If you have any questions regarding careers or internships, feel free to contact our
                 HR team.
               </p>
-              
+              <a
                 href={`mailto:${HR_EMAIL}`}
                 className="mt-5 inline-block break-all text-sm font-semibold text-navy underline-offset-4 hover:text-gold hover:underline"
               >
                 {HR_EMAIL}
               </a>
               <div className="mt-6">
-                
+                <a
                   href={`mailto:${HR_EMAIL}?subject=${encodeURIComponent("Careers Enquiry")}`}
                   className="inline-flex items-center gap-2 rounded-full bg-navy px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all hover:bg-navy-dark"
                 >
