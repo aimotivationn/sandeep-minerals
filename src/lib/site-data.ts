@@ -98,7 +98,7 @@ export const products: Product[] = [
   },
   {
     slug: "namo-carbshine",
-    name: "NAMO CARBSHINE",
+    name: "Namo Carbshine",
     short: "Ultra Fine Calcium Carbonate that replaces titanium dioxide by 20–25%.",
     image: namoImg,
     description:

@@ -2,23 +2,32 @@ import { Link } from "@tanstack/react-router";
 import { Phone, Mail, MapPin, Linkedin, Facebook, Twitter, Instagram } from "lucide-react";
 import { products, CONTACT } from "@/lib/site-data";
 
+import logo from "@/assets/logo.png";
+
 export function Footer() {
   return (
     <footer className="bg-navy text-primary-foreground/80">
       <div className="container-px grid gap-10 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <Link to="/" className="flex items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary-foreground/10 font-display text-lg font-bold text-primary-foreground">
-              S<span className="text-gold">M</span>
-            </span>
+            
+            {/* ✅ LOGO FIXED */}
+            <img
+              src={logo}
+              alt="Sandeep Mineral Industries"
+              className="h-11 w-11 object-contain"
+            />
+
             <span className="font-display text-base font-bold text-primary-foreground">
               Sandeep Mineral Industries
             </span>
           </Link>
+
           <p className="mt-4 text-sm leading-relaxed">
             Delivering high-performance industrial minerals since 2005 — engineered for purity,
             precision and consistency across global industries.
           </p>
+
           <div className="mt-5 flex gap-3">
             {[Linkedin, Facebook, Twitter, Instagram].map((Icon, i) => (
               <a
@@ -32,7 +41,6 @@ export function Footer() {
             ))}
           </div>
         </div>
-
         <div>
           <h4 className="font-display text-sm font-semibold uppercase tracking-wider text-primary-foreground">
             Quick Links
