@@ -13,7 +13,7 @@ export function BlogHero() {
       />
 
       {/* ✅ DARK OVERLAY */}
-      <div className="absolute inset-0 bg-navy/85" />
+      <div className="absolute inset-0 bg-navy/70" />
 
       {/* ✅ CONTENT */}
       <div className="container-px relative py-16 md:py-24">
@@ -26,7 +26,7 @@ export function BlogHero() {
 
         <span className="eyebrow">Insights</span>
 
-        <h1 className="mt-3 max-w-3xl text-3xl md:text-5xl">
+        <h1 className="mt-3 max-w-3xl text-3xl md:text-5xl text-primary-foreground">
           Insights & Blog
         </h1>
 

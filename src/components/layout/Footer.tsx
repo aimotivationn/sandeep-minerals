@@ -29,16 +29,23 @@ export function Footer() {
           </p>
 
           <div className="mt-5 flex gap-3">
-            {[Linkedin, Facebook, Twitter, Instagram].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                aria-label="Social link"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 text-primary-foreground transition-colors hover:bg-gold hover:text-secondary-foreground"
-              >
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
+            {[
+  { Icon: Linkedin, link: "https://www.linkedin.com/company/sandeep-mineral-industries/" },
+  { Icon: Facebook, link: "https://www.facebook.com/SandeepMineralIndusteries" },
+  { Icon: Instagram, link: "https://www.instagram.com/sandeepmineralindusteries?igsh=MWZrMWcydTNmbWU2ag==" },
+].map(({ Icon, link }, i) => (
+  <a
+    key={i}
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Social link"
+    className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 text-primary-foreground transition-colors hover:bg-gold hover:text-secondary-foreground"
+  >
+    <Icon className="h-4 w-4" />
+  </a>
+))
+            }
           </div>
         </div>
         <div>
