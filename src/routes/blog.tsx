@@ -4,6 +4,7 @@ import { Calendar, ArrowRight, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { BlogHero } from "@/components/BlogHero";
 
 export const Route = createFileRoute("/blog")({
   head: () => ({
@@ -78,13 +79,7 @@ function Blog() {
 
   return (
     <>
-      <PageHero
-        eyebrow="Insights"
-        crumb="Blog"
-        title="Knowledge from the world of industrial minerals"
-        subtitle="Practical articles on technology, applications and supply — written for manufacturers and formulators."
-      />
-
+      <BlogHero />
       <section className="bg-background py-20 md:py-28">
         <div className="container-px grid gap-7 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, i) => (
