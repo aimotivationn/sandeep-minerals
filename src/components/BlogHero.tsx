@@ -13,7 +13,7 @@ export function BlogHero() {
       />
 
       {/* ✅ DARK OVERLAY */}
-      <div className="absolute inset-0 bg-navy/70" />
+      <div className="absolute inset-0 bg-navy/85" />
 
       {/* ✅ CONTENT */}
       <div className="container-px relative py-16 md:py-24">
