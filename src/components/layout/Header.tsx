@@ -10,6 +10,7 @@ const productDropdown = [
   { label: "White Pigment Opacifier", id: "white-pigment-opacifier" },
   { label: "Calcium Oxide", id: "calcium-oxide" },
   { label: "Calcite Granules", id: "calcite-granules" },
+  { label: "Calcite Powder / Other Minerals", id: "calcite-powder" },
 ];
 
 const nav = [
@@ -84,7 +85,8 @@ export function Header() {
                     {productDropdown.map((p) => (
                       <Link
                         key={p.id}
-                        to={`/products#${p.id}`}
+                        to="/products/"
+                        hash={p.id}
                               className="block rounded-md px-3 py-2 text-sm font-medium text-primary-foreground/80 transition-all hover:bg-white/5 hover:text-primary-foreground"
 
                       >

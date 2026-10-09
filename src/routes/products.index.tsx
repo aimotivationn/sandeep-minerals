@@ -9,12 +9,16 @@ import { products } from "@/lib/site-data";
 export const Route = createFileRoute("/products/")({
   head: () => ({
     meta: [
-      { title: "Products | Barytes, Calcium Carbonate & Calcite — SMI" },
+      { title: "Products | Sandeep Mineral Industries" },
       {
         name: "description",
         content:
-          "Explore SMI micronised minerals: Barytes Powder, Calcium Carbonate, NAMO CARBSHINE ultra fine CaCO₃, White Pigment Opacifier, Calcite Powder, Calcium Oxide and Calcite Granules.",
+          "Explore Barytes Powder, Calcium Carbonate Powder, NAMO CARBSHINE, White Pigment Opacifier, Calcium Oxide, Calcite Granules and Calcite Powder / Other Minerals.",
       },
+      { property: "og:title", content: "Products | Sandeep Mineral Industries" },
+      { property: "og:description", content: "SMI's confirmed industrial mineral product catalogue." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: Products,
@@ -83,7 +87,7 @@ function Products() {
                   <div className="aspect-[16/10] overflow-hidden md:aspect-auto md:h-full">
                     <img
                       src={p.image}
-                      alt={`${p.name} — micronised mineral`}
+                      alt={p.name}
                       loading="lazy"
                       className="h-full w-full object-cover"
                     />
@@ -92,9 +96,11 @@ function Products() {
                   <div className="p-8 md:p-10">
                     <h2 className="text-2xl md:text-3xl">{p.name}</h2>
 
-                    <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                      {p.description}
-                    </p>
+                    {p.description && (
+                      <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                        {p.description}
+                      </p>
+                    )}
 
                     {p.grades && (
                       <div className="mt-5 flex flex-wrap gap-2">
@@ -109,17 +115,19 @@ function Products() {
                       </div>
                     )}
 
-                    <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                      {p.benefits.slice(0, 4).map((b) => (
-                        <li
-                          key={b}
-                          className="flex items-start gap-2 text-sm text-foreground"
-                        >
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 text-gold" />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
+                    {p.benefits.length > 0 && (
+                      <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+                        {p.benefits.slice(0, 4).map((b) => (
+                          <li
+                            key={b}
+                            className="flex items-start gap-2 text-sm text-foreground"
+                          >
+                            <CheckCircle2 className="mt-0.5 h-4 w-4 text-gold" />
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
 
                     <div className="mt-6 flex flex-wrap gap-3">
                       <Link
