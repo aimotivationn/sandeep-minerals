@@ -28,14 +28,16 @@ export const Route = createFileRoute("/products/$slug")({
     }
     const p = loaderData.product;
     const title = `${p.name} | Manufacturer & Supplier — SMI`;
+    const description = p.description || `${p.name}.`;
     return {
       meta: [
         { title },
-        { name: "description", content: `${p.short} Manufactured by Sandeep Mineral Industries with German technology and ISO 9001:2015 certified quality.` },
+        { name: "description", content: description },
         { property: "og:title", content: title },
         { property: "og:description", content: p.short },
         { property: "og:url", content: `/products/${params.slug}` },
         { property: "og:type", content: "product" },
+        { name: "twitter:card", content: "summary" },
       ],
       links: [{ rel: "canonical", href: `/products/${params.slug}` }],
       scripts: [
@@ -45,7 +47,7 @@ export const Route = createFileRoute("/products/$slug")({
             "@context": "https://schema.org",
             "@type": "Product",
             name: p.name,
-            description: p.description,
+            ...(p.description ? { description: p.description } : {}),
             category: "Industrial Minerals",
             brand: { "@type": "Brand", name: "SMI" },
             manufacturer: {
@@ -162,20 +164,24 @@ function ProductDetail() {
             <span className="eyebrow">Overview</span>
             <h2 className="mt-3 text-2xl md:text-3xl">About {product.name}</h2>
             <div className="mt-4 space-y-4 text-base leading-relaxed text-muted-foreground">
-              {product.overview.map((o) => (
-                <p key={o}>{o}</p>
-              ))}
+            {product.overview.map((o) => (
+              <p key={o}>{o}</p>
+            ))}
             </div>
 
-            <h3 className="mt-8 text-lg">Applications</h3>
-            <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-              {product.applications.map((a) => (
-                <li key={a} className="flex items-start gap-2.5 text-sm text-foreground">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
-                  {a}
-                </li>
-              ))}
-            </ul>
+            {product.applications.length > 0 && (
+              <>
+                <h3 className="mt-8 text-lg">Applications</h3>
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {product.applications.map((a) => (
+                    <li key={a} className="flex items-start gap-2.5 text-sm text-foreground">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
+                      {a}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
 
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -242,10 +248,11 @@ function ProductDetail() {
       )}
 
       {/* BENEFITS + INDUSTRIES */}
+      {(product.benefits.length > 0 || product.industries.length > 0) && (
       <section className="bg-muted py-20 md:py-28">
         <div className="container-px grid gap-10 lg:grid-cols-2">
           <Reveal>
-            <div className="card-elegant h-full p-8">
+            {product.benefits.length > 0 && <div className="card-elegant h-full p-8">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-gold">
                 <Sparkles className="h-6 w-6" />
               </div>
@@ -258,10 +265,10 @@ function ProductDetail() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div>}
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="card-elegant h-full p-8">
+            {product.industries.length > 0 && <div className="card-elegant h-full p-8">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy/5 text-navy">
                 <Factory className="h-6 w-6" />
               </div>
@@ -282,15 +289,17 @@ function ProductDetail() {
               >
                 Explore all industries <ArrowRight className="h-4 w-4" />
               </Link>
-            </div>
+            </div>}
           </Reveal>
         </div>
       </section>
+      )}
 
       {/* SPECS + PACKAGING */}
+      {(product.specs.length > 0 || product.packaging.length > 0) && (
       <section className="bg-background py-20 md:py-28">
-        <div className="container-px grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-          <Reveal>
+        <div className={`container-px grid gap-10 ${product.specs.length > 0 ? "lg:grid-cols-[1.4fr_1fr]" : "lg:grid-cols-1"}`}>
+          {product.specs.length > 0 && <Reveal>
             <span className="eyebrow">Technical Specifications</span>
             <h2 className="mt-3 text-3xl md:text-4xl">Typical product data</h2>
             <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-card">
@@ -307,12 +316,9 @@ function ProductDetail() {
                 </tbody>
               </table>
             </div>
-            <p className="mt-4 text-xs text-muted-foreground">
-              * Specifications are typical values. Custom grades available on request.
-            </p>
-          </Reveal>
+          </Reveal>}
 
-          <Reveal delay={0.1}>
+          {product.packaging.length > 0 && <Reveal delay={0.1}>
             <div className="card-elegant h-full p-8">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-gold">
                 <Package className="h-6 w-6" />
@@ -333,9 +339,10 @@ function ProductDetail() {
                 Export & packaging details <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
-          </Reveal>
+          </Reveal>}
         </div>
       </section>
+      )}
 
       {/* COMPARISON (NAMO) */}
       {isNamo && (
@@ -380,7 +387,7 @@ function ProductDetail() {
       )}
 
       {/* FAQ */}
-      <section className="bg-background py-20 md:py-28">
+      {product.faqs.length > 0 && <section className="bg-background py-20 md:py-28">
         <div className="container-px max-w-3xl">
           <Reveal>
             <span className="eyebrow">Frequently Asked Questions</span>
@@ -400,7 +407,7 @@ function ProductDetail() {
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* RELATED PRODUCTS */}
       <section className="bg-muted py-20 md:py-28">
@@ -426,7 +433,7 @@ function ProductDetail() {
                   </div>
                   <div className="p-6">
                     <h3 className="text-base">{p.name}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{p.short}</p>
+                    {p.short && <p className="mt-2 text-sm text-muted-foreground">{p.short}</p>}
                   </div>
                 </Link>
               </Reveal>

@@ -30,6 +30,7 @@ const packs = [
   { size: "25 kg", text: "HDPE laminated bags for controlled batch handling" },
   { size: "50 kg", text: "Standard industrial bags for high-volume plants" },
   { size: "500 kg", text: "Jumbo bags for bulk consumption and mechanised handling" },
+  { size: "1000 kg / 1 MT", text: "Jumbo bag packaging" },
 ];
 
 function ExportPackaging() {
@@ -47,7 +48,7 @@ function ExportPackaging() {
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="eyebrow">Packaging Options</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">Three standard pack sizes</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl">Standard and jumbo bag sizes</h2>
             </Reveal>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
