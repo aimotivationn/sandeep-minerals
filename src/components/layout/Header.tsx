@@ -85,7 +85,7 @@ export function Header() {
                     {productDropdown.map((p) => (
                       <Link
                         key={p.id}
-                        to="/products/"
+                        to="/products"
                         hash={p.id}
                               className="block rounded-md px-3 py-2 text-sm font-medium text-primary-foreground/80 transition-all hover:bg-white/5 hover:text-primary-foreground"
 
