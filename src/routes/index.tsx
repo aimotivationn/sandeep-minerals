@@ -19,16 +19,16 @@ import heroImg from "@/assets/hero-quarry.jpg";
 import { Reveal } from "@/components/Reveal";
 import { StatCounter } from "@/components/StatCounter";
 import { CTABand } from "@/components/CTABand";
-import { products } from "@/lib/site-data";
+import { products, COMPANY } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sandeep Mineral Industries | High-Performance Industrial Minerals" },
+       { title: `Sandeep Mineral Industries | Mineral Manufacturer Since ${COMPANY.founded}` },
       {
         name: "description",
         content:
-          "Delivering high-performance industrial minerals since 2005. Baryte powder, ultra-fine & super-fine calcium carbonate and imported mineral powders for global industries.",
+          `Sandeep Mineral Industries is a family-run mineral manufacturing and processing business founded in Alwar, Rajasthan in ${COMPANY.founded}.`,
       },
       { property: "og:title", content: "Sandeep Mineral Industries | Industrial Minerals" },
       {
@@ -36,16 +36,18 @@ export const Route = createFileRoute("/")({
         content:
           "Premium mineral solutions for plastics, paints, rubber, construction and industrial applications.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,
 });
 
 const stats = [
-  { value: 20, suffix: "+", label: "Years of Excellence" },
-  { value: 500, suffix: "+", label: "Clients Served" },
-  { value: 3, suffix: "", label: "Manufacturing Units" },
-  { value: 100, suffix: "%", label: "Quality Assured" },
+  { value: COMPANY.founded, suffix: "", label: "Founded in Alwar" },
+  { value: 3, suffix: "", label: "Rajasthan Locations" },
+  { value: products.length, suffix: "", label: "Approved Product Listings" },
+  { value: 2017, suffix: "", label: "GST Registration" },
 ];
 
 const features = [
@@ -56,28 +58,28 @@ const features = [
   },
   {
     icon: ShieldCheck,
-    title: "Certified Purity",
-    text: "Rigorous lab testing ensures every batch meets exacting purity and brightness standards.",
+    title: "Quality Checks",
+    text: "Production batches are checked for consistency and customer requirements.",
   },
   {
     icon: Factory,
-    title: "Manufacturing Scale",
-    text: "Three plants across Rajasthan delivering reliable, high-volume bulk supply.",
+    title: "Rajasthan Operations",
+    text: "Mineral processing and manufacturing locations serving industrial customers.",
   },
   {
     icon: Globe2,
-    title: "Global Supply",
-    text: "Export-ready logistics serving domestic and international markets with confidence.",
+    title: "Domestic & Bulk Supply",
+    text: "Serving industrial customers across India with bulk and container-loaded export consignments.",
   },
 ];
 
 const industries = [
   { icon: Layers, name: "Plastics" },
-  { icon: Beaker, name: "Paints & Coatings" },
+  { icon: Beaker, name: "Paints" },
   { icon: Hammer, name: "Construction" },
   { icon: Factory, name: "Rubber" },
-  { icon: Beaker, name: "Chemical" },
-  { icon: Truck, name: "Manufacturing" },
+  { icon: Beaker, name: "Paper" },
+  { icon: Truck, name: "Adhesives" },
 ];
 
 const testimonials = [
@@ -126,14 +128,14 @@ function Home() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-2xl"
           >
-            <span className="eyebrow">Industrial Minerals · Since 2005</span>
+            <span className="eyebrow">Industrial Minerals · Since {COMPANY.founded}</span>
             <h1 className="mt-4 text-4xl leading-[1.08] md:text-6xl">
               Delivering High-Performance Industrial Minerals
-              <span className="text-gradient-gold"> Since 2005</span>
+              <span className="text-gradient-gold"> Since {COMPANY.founded}</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/80">
-              Premium mineral solutions for plastics, paints, rubber, construction and industrial
-              applications.
+              A Rajasthan-based mineral manufacturer and processor serving industrial customers with
+              reliable mineral solutions.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
               <Link
@@ -176,13 +178,16 @@ function Home() {
             <Reveal>
               <span className="eyebrow">Who We Are</span>
               <h2 className="mt-3 text-3xl md:text-4xl">
-                Precision-engineered minerals trusted by industry leaders
+                Mineral processing rooted in Alwar, Rajasthan
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                Sandeep Mineral Industries manufactures and supplies high-performance mineral
-                products built on particle-size precision, purity and consistency — enhancing the
-                performance, durability and cost efficiency of your formulations.
+                Sandeep Mineral Industries is a Rajasthan-based mineral manufacturer and processor
+                serving industrial customers with processed mineral products, quality checks and
+                customer-focused supply.
               </p>
+              <Link to="/about" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-gold">
+                Explore Our Company <ArrowRight className="h-4 w-4" />
+              </Link>
             </Reveal>
           </div>
 

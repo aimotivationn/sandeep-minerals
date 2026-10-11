@@ -216,30 +216,51 @@ export const getProduct = (slug: string) => products.find((p) => p.slug === slug
 export const COMPANY = {
   name: "Sandeep Mineral Industries",
   tradeName: "SMI",
-  established: "2005",
-  industry: "Micronised Industrial Minerals Manufacturer",
-  headquarters: "Rajgarh, Alwar, Rajasthan",
+  founded: 2000,
+  legalStatus: "Sole Proprietorship",
+  gstin: "08AFTPJ2006F1ZL",
+  gstRegistrationDate: "1 July 2017",
+  businessType: "Mineral Manufacturing & Processing",
+  industry: "Industrial Minerals / Mineral Manufacturing",
+  location: "Alwar, Rajasthan, India",
+  headquarters: "H-25/26, RIICO Industrial Area, Rajgarh, Alwar, Rajasthan 301408, India",
+  leadership: [
+    {
+      name: "Sandeep Jain",
+      role: "Marketing Manager",
+      description:
+        "Sandeep Jain leads marketing and customer-facing initiatives at Sandeep Mineral Industries, with a focus on client relationships, business development and distribution of the company's mineral products.",
+    },
+    {
+      name: "Moti Lal Jain",
+      role: "Proprietor",
+      description:
+        "Moti Lal Jain is associated with the ownership and statutory affairs of Sandeep Mineral Industries, supporting the business's compliance and operational continuity.",
+    },
+  ],
 };
 
 export const overviewParagraphs = [
-  "India possesses one of the richest mineral resources in the world.",
-  'Sandeep Mineral Industries (SMI) is a leading manufacturer of premium micronised mineral products under the trusted trade name "SMI."',
-  "From an initial production capacity of 3,000 MT per annum in 2005, SMI has expanded to over 36,000 MT annually through continuous investment in technology, infrastructure and manufacturing excellence.",
-  "Operating from three advanced manufacturing facilities located in Rajgarh, Makrana and Abu Road, the company manufactures world-class micronised minerals using modern German processing technology.",
-  "SMI supplies premium mineral solutions to Paints, Powder Coatings, Plastics, Polymer, Rubber, Paper, Construction and Industrial manufacturing sectors.",
-  "With strong R&D, strict quality control and continuous technological innovation, SMI has established itself as a reliable supplier for domestic and international customers.",
-  "The company is committed to becoming a Global Leader in Micronised Mineral Manufacturing.",
+  `Founded in ${COMPANY.founded} in Alwar, Rajasthan, Sandeep Mineral Industries began as a family-run proprietorship and has grown into a mineral manufacturing and processing business serving industrial customers across India.`,
+  "The business specializes in processed and micronized mineral products including Barium Sulphate / Barytes, Calcium Carbonate, Calcite, Calcium Oxide / Quicklime and other mineral products.",
+  "Sandeep Mineral Industries serves customers in paints, powder coatings, plastics, rubber, paper, adhesives, construction and other industrial applications.",
+  "Its Rajasthan operations focus on mineral processing, micronization, particle-size control, quality checks, industrial packaging and bulk supply.",
+  "Built as a family-run proprietorship, Sandeep Mineral Industries combines hands-on ownership, long-term customer relationships and practical mineral-processing expertise.",
+  "The company supports domestic customers across India as well as customized packaging and bulk, container-loaded export consignments.",
 ];
 
 export const journey = [
   {
+    year: String(COMPANY.founded),
+    title: "Founded in Alwar",
+    place: "Alwar, Rajasthan",
+    points: ["Founded in Alwar, Rajasthan as a family-run proprietorship."],
+  },
+  {
     year: "2005",
     title: "First Manufacturing Unit",
     place: "Rajgarh, Alwar",
-    points: [
-      "Established the first manufacturing unit at Rajgarh, Alwar (Rajasthan).",
-      "Started production capacity of 3,000 MT per annum.",
-    ],
+    points: ["Established the first manufacturing unit at Rajgarh, Alwar, Rajasthan."],
   },
   {
     year: "2017",
@@ -253,49 +274,49 @@ export const journey = [
     place: "Abu Road, Rajasthan",
     points: [
       "Established third manufacturing unit at Abu Road, Rajasthan.",
-      "Production capacity increased to 36,000 MT annually.",
       "Installed advanced German manufacturing technology.",
     ],
-  },
-  {
-    year: "Future",
-    title: "Future Expansion",
-    place: "Planned",
-    points: ["Future expansion already planned.", "Continued investment in capacity, R&D and export capability."],
   },
 ];
 
 export const highlights = [
-  { value: "20+", label: "Years of Excellence" },
-  { value: "36,000 MT", label: "Annual Production Capacity" },
-  { value: "3", label: "Manufacturing Units" },
-  { value: "2", label: "Owned Mining Sources" },
-  { value: "ISO 9001:2015", label: "Certified Company" },
-  { value: "500+", label: "Industrial Clients" },
+  { value: String(COMPANY.founded), label: "Founded in Alwar" },
+  { value: "3", label: "Rajasthan Manufacturing Locations" },
+  { value: "7", label: "Approved Product Listings" },
+  { value: "2017", label: "GST Registration" },
 ];
 
 export const sourcing = {
   mine: {
-    title: "Mine Location",
-    lines: ["Selwara", "District Sirohi", "Rajasthan"],
+    title: "Primary Business Location",
+    lines: ["H-25/26, RIICO Industrial Area", "Rajgarh, Alwar", "Rajasthan 301408, India"],
   },
   processing: {
-    title: "Raw Material Processing Unit",
-    lines: [
-      "Sandeep Micron",
-      "Plot No. E-64",
-      "Maval RIICO Growth Centre Phase II",
-      "Abu Road",
-      "District Sirohi",
-      "Rajasthan",
-    ],
+    title: "Third Plant",
+    lines: ["Abu Road / Khara", "Rajasthan 307026", "India"],
   },
 };
 
 export const units = [
-  { n: "Unit 1", city: "Rajgarh", region: "Alwar, Rajasthan", x: "62%", y: "30%" },
+  {
+    n: "Unit 1",
+    city: "Rajgarh",
+    region: "Alwar, Rajasthan 301408",
+    address: "H-25/26, RIICO Industrial Area, Rajgarh, Alwar, Rajasthan 301408, India",
+    mapQuery: "Sandeep Mineral Industries H-25/26 RIICO Industrial Area Rajgarh Alwar Rajasthan 301408",
+    x: "62%",
+    y: "30%",
+  },
   { n: "Unit 2", city: "Makrana", region: "Rajasthan", x: "46%", y: "48%" },
-  { n: "Unit 3", city: "Abu Road", region: "Rajasthan", x: "22%", y: "76%" },
+  {
+    n: "Unit 3",
+    city: "Abu Road",
+    region: "Khara, Rajasthan 307026, India",
+    address: "Sandeep Mineral Industries – 3rd Plant, Abu Road / Khara, Rajasthan 307026, India",
+    mapQuery: "Sandeep Mineral Industries 3rd Plant Abu Road Khara Rajasthan 307026",
+    x: "22%",
+    y: "76%",
+  },
 ];
 
 export const productionFlow = [
@@ -310,12 +331,12 @@ export const productionFlow = [
 ];
 
 export const germanTechBenefits = [
-  "Ultra Fine Grinding",
-  "Uniform Particle Size",
-  "High Purity",
-  "Better Dispersion",
-  "Consistent Quality",
-  "Large Scale Production",
+  "Mineral Powder Processing",
+  "Micronization",
+  "Particle-Size Control",
+  "Quality Checks",
+  "Industrial Packaging",
+  "Bulk Supply",
 ];
 
 export const labTests = [
@@ -334,29 +355,24 @@ export const labTests = [
 
 export const whyChooseSMI = [
   { title: "German Technology", text: "Modern German processing lines for ultra fine, uniform micronisation." },
-  { title: "ISO Certified", text: "ISO 9001:2015 certified quality management across all operations." },
-  { title: "20 Years Experience", text: "Two decades of micronised mineral manufacturing since 2005." },
-  { title: "36,000 MT Capacity", text: "Annual capacity across three units for dependable bulk supply." },
-  { title: "Owned Mines", text: "Two owned mining sources securing raw material quality and continuity." },
-  { title: "R&D Team", text: "Dedicated research team developing application-specific grades." },
-  { title: "Strict Quality", text: "Eleven-point laboratory testing protocol on every production lot." },
-  { title: "Customized Solutions", text: "Grades tuned to your particle size, whiteness and dispersion needs." },
-  { title: "Reliable Delivery", text: "Planned logistics for on-time domestic and export dispatch." },
-  { title: "Competitive Pricing", text: "Integrated mine-to-micron operations deliver strong cost efficiency." },
+  { title: "Family-Run Ownership", text: "A family-run proprietorship with hands-on ownership." },
+  { title: "Quality Checks", text: "Production batches are checked for consistency and customer requirements." },
+  { title: "Processing Infrastructure", text: "Mineral processing locations across Rajasthan." },
+  { title: "Flexible Packaging", text: "Standard and customized packaging options for supply requirements." },
+  { title: "Domestic Distribution", text: "Serving industrial customers across India." },
+  { title: "Bulk & Export Supply", text: "Bulk and container-loaded consignments are supported." },
+  { title: "Customer-Focused Service", text: "Customer relationships and practical mineral-processing expertise." },
 ];
 
 export const industriesServed = [
-  { name: "Paints & Powder Coatings", text: "Ultra fine grades that raise opacity, sheen control and durability." },
-  { name: "Plastic Industry", text: "Functional fillers for stiffness, opacity and cost efficiency." },
-  { name: "Rubber Industry", text: "Consistent fillers improving strength and processing economics." },
-  { name: "Paper Industry", text: "High-brightness minerals for coated and filled paper grades." },
-  { name: "Construction", text: "Dependable inputs for mortars, putty, sealants and building products." },
-  { name: "PVC Pipes", text: "Coated grades for impact strength and smooth extrusion." },
-  { name: "Masterbatch", text: "Sub-micron fillers with excellent dispersion for filled compounds." },
-  { name: "Adhesives", text: "Rheology and cost control for sealant and adhesive systems." },
-  { name: "Printing Ink", text: "Fine extenders supporting gloss, flow and pigment efficiency." },
-  { name: "Pharmaceutical", text: "High-purity mineral grades for regulated processing requirements." },
-  { name: "Chemical Industry", text: "Reliable mineral raw materials for chemical manufacturing." },
+  { name: "Paints", text: "Mineral products for industrial paint applications." },
+  { name: "Powder Coatings", text: "Mineral products for powder coating applications." },
+  { name: "Plastics", text: "Mineral products for plastics manufacturing." },
+  { name: "Rubber", text: "Mineral products for rubber manufacturing." },
+  { name: "Paper", text: "Mineral products for paper applications." },
+  { name: "Adhesives", text: "Mineral products for adhesive applications." },
+  { name: "Construction", text: "Mineral products for construction applications." },
+  { name: "Other Industrial Applications", text: "Mineral products for other industrial applications." },
 ];
 
 export const goals = [
@@ -385,7 +401,7 @@ export const downloads = [
   { title: "Technical Data Sheets", text: "Grade-wise technical parameters for every product in our range." },
   { title: "Product Brochures", text: "Application-focused brochures for each mineral product family." },
   { title: "Safety Data Sheets", text: "Handling, storage and safety information as per regulatory format." },
-  { title: "Quality Certificates", text: "ISO 9001:2015 certificate and product quality documentation." },
+  { title: "Quality Documentation", text: "Request available product and quality documents from our team." },
 ];
 
 export const enquiryTypes = [

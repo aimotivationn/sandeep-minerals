@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Target, Eye, Gem, CheckCircle2, Factory, Globe2, ArrowRight, Mountain, Cog } from "lucide-react";
+import { Target, Eye, Gem, CheckCircle2, Factory, Globe2, ArrowRight, Mountain, Cog, UserRound } from "lucide-react";
 import aboutImg from "@/assets/about-quarry.jpg";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -11,20 +11,21 @@ import { overviewParagraphs, highlights, sourcing, COMPANY } from "@/lib/site-da
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About SMI | Micronised Mineral Manufacturer Since 2005" },
+       { title: "About Sandeep Mineral Industries | Company Profile" },
       {
         name: "description",
         content:
-          "Sandeep Mineral Industries (SMI) manufactures premium micronised minerals from three Rajasthan plants with 36,000 MT annual capacity and German processing technology.",
+          "Learn about Sandeep Mineral Industries, a family-run mineral manufacturing and processing business founded in Alwar, Rajasthan in 2000.",
       },
       { property: "og:title", content: "About Sandeep Mineral Industries (SMI)" },
       {
         property: "og:description",
         content:
-          "Established 2005. Three plants, 36,000 MT annual capacity, owned mines and ISO 9001:2015 certified quality.",
+          "Founded in Alwar in 2000, Sandeep Mineral Industries is a sole proprietorship serving industrial customers across India.",
       },
       { property: "og:url", content: "/about" },
       { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),
@@ -39,11 +40,14 @@ const values = [
 ];
 
 const facts = [
-  { label: "Company Name", value: COMPANY.name },
-  { label: "Trade Name", value: COMPANY.tradeName },
-  { label: "Established", value: COMPANY.established },
+  { label: "Company", value: COMPANY.name },
+  { label: "Legal Structure", value: COMPANY.legalStatus },
+  { label: "Headquarters / Business Location", value: COMPANY.headquarters },
+  { label: "GSTIN", value: COMPANY.gstin },
+  { label: "GST Registration", value: COMPANY.gstRegistrationDate },
+  { label: "Business Type", value: COMPANY.businessType },
   { label: "Industry", value: COMPANY.industry },
-  { label: "Headquarters", value: COMPANY.headquarters },
+  { label: "Location", value: COMPANY.location },
 ];
 
 function About() {
@@ -52,8 +56,8 @@ function About() {
       <PageHero
         eyebrow="About SMI"
         crumb="About"
-        title="A leading manufacturer of premium micronised minerals"
-        subtitle="Established in 2005, Sandeep Mineral Industries manufactures world-class micronised minerals from three advanced plants across Rajasthan under the trusted trade name SMI."
+        title="Built in Rajasthan. Driven by Mineral Expertise."
+        subtitle={`From our roots in Alwar to our mineral-processing capabilities across Rajasthan, Sandeep Mineral Industries delivers mineral solutions for industrial applications. Founded in ${COMPANY.founded}, the business grew from a family-run proprietorship.`}
       />
 
       {/* OVERVIEW */}
@@ -70,11 +74,11 @@ function About() {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="card-elegant mt-6 divide-y divide-border">
+              <div className="card-elegant mt-6 divide-y divide-border">
               {facts.map((f) => (
-                <div key={f.label} className="flex items-center justify-between gap-4 px-6 py-3.5 text-sm">
+                <div key={f.label} className="flex flex-col gap-1 px-6 py-3.5 text-sm sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                   <span className="font-medium text-muted-foreground">{f.label}</span>
-                  <span className="text-right font-semibold text-navy">{f.value}</span>
+                  <span className="break-words font-semibold text-navy sm:max-w-[62%] sm:text-right">{f.value}</span>
                 </div>
               ))}
             </div>
@@ -126,10 +130,40 @@ function About() {
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="eyebrow">Our Journey</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">2005 → 2017 → 2024 → Future Expansion</h2>
+                <h2 className="mt-3 text-3xl md:text-4xl">A family-run business rooted in Alwar</h2>
             </Reveal>
           </div>
           <JourneyTimeline />
+        </div>
+      </section>
+
+      {/* LEADERSHIP */}
+      <section className="bg-background py-20 md:py-28">
+        <div className="container-px">
+          <div className="mx-auto max-w-2xl text-center">
+            <Reveal>
+              <span className="eyebrow">Leadership</span>
+              <h2 className="mt-3 text-3xl md:text-4xl">People behind Sandeep Mineral Industries</h2>
+            </Reveal>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {COMPANY.leadership.map((person, i) => (
+              <Reveal key={person.name} delay={i * 0.08}>
+                <div className="card-elegant flex h-full items-start gap-5 p-7 md:p-8">
+                  <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-navy/5 font-display text-lg font-bold text-navy" aria-hidden="true">
+                    {person.name.split(" ").map((part) => part[0]).join("")}
+                  </div>
+                  <div>
+                    <h3 className="text-lg">{person.name}</h3>
+                    <div className="mt-1 flex items-center gap-2 text-sm font-semibold text-gold">
+                      <UserRound className="h-4 w-4" /> {person.role}
+                    </div>
+                    <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{person.description}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -214,8 +248,8 @@ function About() {
               </div>
               <h3 className="mt-5 text-2xl">Our Vision</h3>
               <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                To become a Global Leader in Micronised Mineral Manufacturing, setting the benchmark
-                for purity, precision and trust across domestic and international markets.
+                To grow as a trusted mineral manufacturing and processing business, serving
+                customers through consistent quality checks, reliable supply and practical expertise.
               </p>
             </div>
           </Reveal>
