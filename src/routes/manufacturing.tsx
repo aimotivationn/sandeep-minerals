@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Gauge, Truck, Ship, Network, Cog, Sparkles, Ruler, ShieldCheck, Layers, Factory } from "lucide-react";
+import { MapPin, Truck, Ship, Cog, Sparkles, Ruler, ShieldCheck, Layers, Factory, ArrowUpRight } from "lucide-react";
 import manufacturingImg from "@/assets/manufacturing.jpg";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -13,16 +13,17 @@ import { units, germanTechBenefits } from "@/lib/site-data";
 export const Route = createFileRoute("/manufacturing")({
   head: () => ({
     meta: [
-      { title: "Manufacturing | 3 Plants, 36,000 MT Capacity — SMI" },
+      { title: "Manufacturing & Locations | Sandeep Mineral Industries" },
       {
         name: "description",
         content:
-          "Three manufacturing units at Rajgarh, Makrana and Abu Road with 36,000 MT annual capacity, German processing technology and a fully controlled production flow.",
+          "Explore Sandeep Mineral Industries' mineral processing locations in Rajasthan, including Rajgarh, Makrana and Abu Road / Khara.",
       },
       { property: "og:title", content: "Manufacturing | Sandeep Mineral Industries" },
-      { property: "og:description", content: "Three plants across Rajasthan running German micronising technology." },
+      { property: "og:description", content: "Mineral processing and manufacturing locations in Rajasthan." },
       { property: "og:url", content: "/manufacturing" },
       { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [{ rel: "canonical", href: "/manufacturing" }],
   }),
@@ -30,10 +31,10 @@ export const Route = createFileRoute("/manufacturing")({
 });
 
 const capabilities = [
-  { icon: Gauge, title: "Manufacturing Capacity", text: "36,000 MT annual capacity across three units engineered for consistent bulk supply." },
-  { icon: Network, title: "Supply Chain", text: "Owned mines to dispatch — an integrated flow ensuring reliability and traceability." },
-  { icon: Truck, title: "Logistics", text: "Efficient road and rail logistics network for timely domestic deliveries." },
-  { icon: Ship, title: "Export Readiness", text: "Export-grade packaging and documentation for seamless international supply." },
+  { icon: Cog, title: "Mineral Powder Processing", text: "Mineral powder processing facilities operate across Rajasthan." },
+  { icon: Ruler, title: "Micronisation & Particle-Size Control", text: "Processing focuses on micronisation and particle-size control." },
+  { icon: ShieldCheck, title: "Quality Checks", text: "Every production batch is subject to checks for consistency and customer requirements." },
+  { icon: Truck, title: "Packaging & Bulk Supply", text: "Standard and customized packaging, bulk and container-loaded consignments are supported." },
 ];
 
 const techIcons = [Sparkles, Ruler, ShieldCheck, Layers, Cog, Factory];
@@ -46,8 +47,8 @@ function Manufacturing() {
       <PageHero
         eyebrow="Manufacturing"
         crumb="Manufacturing"
-        title="Three Manufacturing Plants. One Standard of Excellence."
-        subtitle="Strategically located across Rajasthan, our Rajgarh, Makrana and Abu Road plants combine German technology, scale and reliable logistics for domestic and export supply."
+        title="Mineral Processing Across Rajasthan"
+        subtitle="Sandeep Mineral Industries operates mineral processing and manufacturing locations in Rajasthan, including Rajgarh, Makrana and Abu Road / Khara."
       />
 
       {/* UNITS + INTERACTIVE MAP */}
@@ -124,8 +125,21 @@ function Manufacturing() {
                   </div>
                   <div>
                     <div className="text-xs font-semibold uppercase tracking-wider text-gold">{u.n}</div>
-                    <div className="text-lg font-bold text-navy">{u.city}</div>
+                    <div className="text-lg font-bold text-navy">{u.city}{u.n === "Unit 3" ? " / Khara" : ""}</div>
                     <div className="text-sm text-muted-foreground">{u.region}</div>
+                    {u.address && (
+                      <>
+                        <div className="mt-1 text-xs text-muted-foreground">{u.address}</div>
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(u.mapQuery ?? u.address)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-navy hover:text-gold"
+                        >
+                          View on Google Maps <ArrowUpRight className="h-4 w-4" />
+                        </a>
+                      </>
+                    )}
                   </div>
                 </button>
               ))}
@@ -157,9 +171,9 @@ function Manufacturing() {
                 German Technology Manufacturing
               </h2>
               <p className="mt-5 text-base leading-relaxed text-primary-foreground/75">
-                SMI operates modern German technology manufacturing plants — precision classifiers,
-                jet and ball mill circuits and automated packing lines — delivering micronised
-                minerals with a level of consistency conventional grinding cannot match.
+                Existing company material identifies German processing technology among SMI's
+                manufacturing capabilities. The facilities support mineral powder processing,
+                micronization, particle-size control and industrial packaging.
               </p>
             </Reveal>
           </div>
@@ -257,14 +271,14 @@ function Manufacturing() {
             <span className="eyebrow">By The Numbers</span>
             <h2 className="mt-3 text-3xl md:text-4xl">Capacity you can count on</h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              From 3,000 MT per annum in 2005 to more than 36,000 MT today — our integrated
-              facilities are designed for high-throughput, consistent output and dependable delivery.
+              Founded in Alwar, Sandeep Mineral Industries has developed into a mineral processing
+              and manufacturing business serving industrial customers from locations across Rajasthan.
             </p>
             <div className="mt-8 grid grid-cols-3 gap-6">
               {[
-                { v: 3, s: "", l: "Plants" },
-                { v: 36000, s: "+", l: "MT Annual Capacity" },
-                { v: 2, s: "", l: "Owned Mines" },
+                { v: 2000, s: "", l: "Founded in Alwar" },
+                { v: 3, s: "", l: "Rajasthan Locations" },
+                { v: 2017, s: "", l: "GST Registration" },
               ].map((m) => (
                 <div key={m.l}>
                   <div className="font-display text-3xl font-extrabold text-navy">
