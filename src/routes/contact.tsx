@@ -4,7 +4,7 @@ import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { toast } from "sonner";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { CONTACT, enquiryTypes } from "@/lib/site-data";
+import { CONTACT, enquiryTypes, units } from "@/lib/site-data";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -13,10 +13,12 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Contact Sandeep Mineral Industries for product enquiries, bulk supply and quotes. Headquarters in Rajgarh, Alwar, Rajasthan, India. Call +91 7427068253.",
+          `Contact Sandeep Mineral Industries for product enquiries and bulk supply. Business location: ${CONTACT.address}. Call ${CONTACT.phone}.`,
       },
       { property: "og:title", content: "Contact | Sandeep Mineral Industries" },
       { property: "og:description", content: "Get in touch for quotes, samples and bulk supply." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: Contact,
@@ -57,7 +59,6 @@ function Contact() {
                 { icon: MapPin, label: "Address", value: CONTACT.address },
                 { icon: Phone, label: "Phone", value: CONTACT.phone, href: `tel:${CONTACT.phone.replace(/\s/g, "")}` },
                 { icon: Mail, label: "Email", value: CONTACT.email, href: `mailto:${CONTACT.email}` },
-                { icon: Clock, label: "Working Hours", value: "Mon – Sat · 9:00 AM – 6:00 PM IST" },
               ].map((item) => (
                 <div key={item.label} className="card-elegant flex items-start gap-4 p-5">
                   <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-navy/5 text-navy">
@@ -127,11 +128,38 @@ function Contact() {
       {/* MAP */}
       <section className="bg-muted pb-20 md:pb-28">
         <div className="container-px">
+          <Reveal className="mb-10">
+            <span className="eyebrow">Our Locations</span>
+            <h2 className="mt-3 text-3xl md:text-4xl">Located in Rajasthan</h2>
+            <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground">
+              Strategically located in Rajasthan's mineral-processing ecosystem, Sandeep Mineral
+              Industries operates from established industrial locations serving domestic and export requirements.
+            </p>
+          </Reveal>
+          <div className="mb-8 grid gap-5 md:grid-cols-2">
+            {units.filter((unit) => unit.address && unit.mapQuery).map((unit) => (
+              <Reveal key={unit.n}>
+                <div className="card-elegant flex h-full flex-col p-6">
+                  <span className="eyebrow">{unit.n === "Unit 1" ? "Headquarters / Primary Business Location" : "Plant / Location 3"}</span>
+                  <h3 className="mt-2 text-xl text-navy">{unit.city}{unit.n === "Unit 3" ? " / Khara" : ""}</h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{unit.address}</p>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(unit.mapQuery ?? unit.address ?? "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-gold"
+                  >
+                    View on Google Maps <MapPin className="h-4 w-4" />
+                  </a>
+                </div>
+              </Reveal>
+            ))}
+          </div>
           <Reveal>
             <div className="overflow-hidden rounded-2xl border border-border shadow-card">
               <iframe
                 title="Sandeep Mineral Industries location"
-                src="https://www.google.com/maps?q=Rajgarh,Alwar,Rajasthan&output=embed"
+                src={`https://www.google.com/maps?q=${encodeURIComponent(CONTACT.address)}&output=embed`}
                 width="100%"
                 height="420"
                 loading="lazy"

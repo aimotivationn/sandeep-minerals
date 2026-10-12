@@ -18,6 +18,31 @@ import { Footer } from "../components/layout/Footer";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 import { ScrollToTop } from "../components/ScrollToTop";
 import { Toaster } from "../components/ui/sonner";
+import { COMPANY, CONTACT } from "../lib/site-data";
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: COMPANY.name,
+  legalName: COMPANY.name,
+  description: "Rajasthan-based mineral manufacturing and processing business.",
+  foundingDate: String(COMPANY.founded),
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "H-25/26, RIICO Industrial Area",
+    addressLocality: "Rajgarh, Alwar",
+    addressRegion: "Rajasthan",
+    postalCode: "301408",
+    addressCountry: "IN",
+  },
+  telephone: CONTACT.phone,
+  email: CONTACT.email,
+  vatID: COMPANY.gstin,
+  additionalProperty: [
+    { "@type": "PropertyValue", name: "Legal structure", value: COMPANY.legalStatus },
+    { "@type": "PropertyValue", name: "Business type", value: COMPANY.businessType },
+  ],
+};
 
 function NotFoundComponent() {
   return (
@@ -88,18 +113,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Sandeep Mineral Industries — leading manufacturer of baryte powder & ultra-fine calcium carbonate for plastics, paints, rubber & construction since 2005.",
+          "Sandeep Mineral Industries is a family-run mineral manufacturing and processing business founded in Alwar, Rajasthan in 2000.",
       },
       { name: "author", content: "Sandeep Mineral Industries" },
       { property: "og:title", content: "Sandeep Mineral Industries | Premium Industrial Minerals" },
       {
         property: "og:description",
         content:
-          "High-performance industrial minerals engineered for purity, precision and consistency. Trusted supply partner since 2005.",
+          "Processed mineral products for industrial customers, from a Rajasthan-based mineral manufacturing and processing business.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(organizationSchema) }],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
