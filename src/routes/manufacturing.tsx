@@ -131,7 +131,7 @@ function Manufacturing() {
                       <>
                         <div className="mt-1 text-xs text-muted-foreground">{u.address}</div>
                         <a
-                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(u.mapQuery ?? u.address)}`}
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(u.mapQuery ?? "")}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="mt-2 inline-flex items-center gap-1 text-sm font-semibold text-navy hover:text-gold"
