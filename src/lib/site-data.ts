@@ -220,6 +220,7 @@ export const COMPANY = {
   legalStatus: "Sole Proprietorship",
   gstin: "08AFTPJ2006F1ZL",
   gstRegistrationDate: "1 July 2017",
+  gstRegistrationYear: 2017,
   businessType: "Mineral Manufacturing & Processing",
   industry: "Industrial Minerals / Mineral Manufacturing",
   location: "Alwar, Rajasthan, India",
@@ -283,7 +284,7 @@ export const highlights = [
   { value: String(COMPANY.founded), label: "Founded in Alwar" },
   { value: "3", label: "Rajasthan Manufacturing Locations" },
   { value: "7", label: "Approved Product Listings" },
-  { value: "2017", label: "GST Registration" },
+  { value: String(COMPANY.gstRegistrationYear), label: "GST Registration" },
 ];
 
 export const sourcing = {
@@ -320,14 +321,12 @@ export const units = [
 ];
 
 export const productionFlow = [
-  "Mining",
-  "Crushing",
-  "Grinding",
-  "Micronisation",
-  "Particle Classification",
-  "Quality Testing",
-  "Packaging",
-  "Dispatch",
+  "Mineral Processing",
+  "Micronization",
+  "Particle-Size Control",
+  "Quality Checks",
+  "Industrial Packaging",
+  "Bulk / Container-Loaded Supply",
 ];
 
 export const germanTechBenefits = [
@@ -340,21 +339,13 @@ export const germanTechBenefits = [
 ];
 
 export const labTests = [
-  { name: "Particle Size Analysis", text: "Laser diffraction analysis confirms D50 and full distribution for every batch." },
-  { name: "Spectrophotometer", text: "Instrumental colour measurement verifies shade consistency and reflectance." },
-  { name: "Oil Absorption Test", text: "Determines binder demand for accurate paint and polymer formulation." },
-  { name: "Bulk Density", text: "Loose and tapped density checks ensure consistent handling and dosing." },
-  { name: "Chemical Analysis", text: "Wet chemistry and instrumental analysis validate purity and composition." },
-  { name: "Whiteness", text: "Whiteness index measured against reference standards on every production lot." },
-  { name: "Brightness", text: "Brightness testing confirms optical performance in coatings and paper." },
-  { name: "Moisture Testing", text: "Controlled moisture levels safeguard flow, dispersion and storage life." },
-  { name: "Uniformity of Coating", text: "Surface-treatment coverage verified for coated calcium carbonate grades." },
-  { name: "FPV Testing", text: "Fineness of powder value assessed to confirm grind quality." },
-  { name: "PH Testing", text: "pH measurement ensures compatibility with your formulation chemistry." },
+  { name: "Production Batch Checks", text: "Every production batch is subject to quality checks designed to maintain consistency and meet customer requirements." },
+  { name: "Processing Consistency", text: "Quality checks support consistency throughout mineral processing." },
+  { name: "Customer Requirements", text: "Production checks are intended to help meet customer requirements." },
 ];
 
 export const whyChooseSMI = [
-  { title: "German Technology", text: "Modern German processing lines for ultra fine, uniform micronisation." },
+  { title: "German Processing Technology", text: "German processing technology is identified in existing company material." },
   { title: "Family-Run Ownership", text: "A family-run proprietorship with hands-on ownership." },
   { title: "Quality Checks", text: "Production batches are checked for consistency and customer requirements." },
   { title: "Processing Infrastructure", text: "Mineral processing locations across Rajasthan." },
@@ -421,5 +412,5 @@ export const CONTACT = {
   phone: "+91 8824857634",
   email: "mentorservices.005@gmail.com",
   location: "Rajasthan, India",
-  address: "H25-26, RIICO Industrial Area, Rajgarh, Alwar, Rajasthan – 301408, India",
+  address: "H-25/26, RIICO Industrial Area, Rajgarh, Alwar, Rajasthan 301408, India",
 };

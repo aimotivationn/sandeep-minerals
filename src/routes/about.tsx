@@ -175,9 +175,9 @@ function About() {
               <span className="eyebrow">Raw Material Sourcing</span>
               <h2 className="mt-3 text-3xl md:text-4xl">Quality controlled from mine to micron</h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-                Owning our mining source and raw material processing unit means we control purity,
-                brightness and consistency at every stage — long before the mineral reaches a
-                micronising mill.
+                Sandeep Mineral Industries' Rajasthan business includes the primary location in
+                Rajgarh, Alwar and a third plant at Abu Road / Khara. The manufacturing process
+                focuses on mineral processing and quality checks.
               </p>
             </Reveal>
           </div>

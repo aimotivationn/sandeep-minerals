@@ -64,7 +64,7 @@ function Quality() {
         subtitle="Every production batch is subject to quality checks designed to maintain consistency and meet customer requirements."
       />
 
-      {/* ISO BADGE */}
+      {/* QUALITY ASSURANCE */}
       <section className="bg-background py-16 md:py-20">
         <div className="container-px grid items-center gap-10 lg:grid-cols-2">
           <Reveal>
@@ -86,8 +86,8 @@ function Quality() {
         <div className="container-px">
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
-              <span className="eyebrow">Laboratory Testing Capabilities</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">Eleven tests behind every consignment</h2>
+              <span className="eyebrow">Quality Assurance</span>
+              <h2 className="mt-3 text-3xl md:text-4xl">Batch checks for consistent supply</h2>
             </Reveal>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

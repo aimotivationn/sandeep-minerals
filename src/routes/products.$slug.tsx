@@ -55,10 +55,15 @@ export const Route = createFileRoute("/products/$slug")({
               name: "Sandeep Mineral Industries",
               address: {
                 "@type": "PostalAddress",
+                streetAddress: "H-25/26, RIICO Industrial Area",
                 addressLocality: "Rajgarh, Alwar",
                 addressRegion: "Rajasthan",
+                postalCode: "301408",
                 addressCountry: "IN",
               },
+              additionalProperty: [
+                { "@type": "PropertyValue", name: "Legal structure", value: "Sole Proprietorship" },
+              ],
             },
             additionalProperty: p.specs.map((s) => ({
               "@type": "PropertyValue",
