@@ -68,9 +68,8 @@ function OurGoal() {
             <span className="eyebrow">Quality Policy</span>
             <h2 className="mt-3 text-3xl md:text-4xl">Excellence, verified at every stage</h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              Our ISO 9001:2015 certified quality management system governs raw material selection,
-              processing, laboratory testing, packaging and dispatch — so every consignment leaves
-              our plants meeting the specification our customers depend on.
+              Production batches are subject to quality checks designed to maintain consistency and
+              meet customer requirements throughout mineral processing and supply.
             </p>
             <div className="mt-8">
               <IsoBadge />
@@ -79,11 +78,11 @@ function OurGoal() {
           <Reveal delay={0.1}>
             <ul className="grid gap-4">
               {[
-                "Documented procedures across all three manufacturing units",
-                "Eleven-point laboratory testing on every production lot",
-                "Traceable batch coding from mine to dispatch",
-                "Continuous employee training and safety programmes",
-                "Customer feedback loops driving process improvement",
+                "Quality checks designed to maintain batch consistency",
+                "Mineral powder processing and micronization",
+                "Particle-size control",
+                "Industrial packaging and bulk supply",
+                "Customer-focused mineral processing expertise",
               ].map((t) => (
                 <li key={t} className="flex items-start gap-3 rounded-xl bg-card p-4 shadow-card">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />

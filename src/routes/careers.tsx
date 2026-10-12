@@ -39,11 +39,11 @@ const openings: JobOpening[] = [];
 const whyJoin = [
   { icon: TrendingUp, title: "Professional Growth", text: "Clear career paths with responsibility that grows as fast as you do." },
   { icon: GraduationCap, title: "Learning & Development", text: "On-the-job training, technical mentoring and process certification." },
-  { icon: Factory, title: "Modern Manufacturing Facilities", text: "German-technology micronising plants and well-equipped laboratories." },
+  { icon: Factory, title: "Modern Manufacturing Facilities", text: "Mineral processing and manufacturing locations across Rajasthan." },
   { icon: ShieldCheck, title: "Safe Working Environment", text: "Structured safety protocols, protective equipment and regular audits." },
   { icon: Lightbulb, title: "Innovation & Technology", text: "Continuous process improvement and new product development." },
   { icon: Users, title: "Teamwork & Collaboration", text: "Cross-functional teams working towards shared quality goals." },
-  { icon: Briefcase, title: "Long-Term Career Opportunities", text: "Stable, growing organisation with two decades of manufacturing strength." },
+  { icon: Briefcase, title: "Long-Term Career Opportunities", text: "Opportunities may arise as the business's capabilities and requirements evolve." },
   { icon: Award, title: "Employee Recognition", text: "Performance is acknowledged, rewarded and celebrated." },
 ];
 

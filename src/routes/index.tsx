@@ -19,7 +19,7 @@ import heroImg from "@/assets/hero-quarry.jpg";
 import { Reveal } from "@/components/Reveal";
 import { StatCounter } from "@/components/StatCounter";
 import { CTABand } from "@/components/CTABand";
-import { products, COMPANY } from "@/lib/site-data";
+import { products, COMPANY, whyChooseSMI } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,7 +47,7 @@ const stats = [
   { value: COMPANY.founded, suffix: "", label: "Founded in Alwar" },
   { value: 3, suffix: "", label: "Rajasthan Locations" },
   { value: products.length, suffix: "", label: "Approved Product Listings" },
-  { value: 2017, suffix: "", label: "GST Registration" },
+  { value: COMPANY.gstRegistrationYear, suffix: "", label: "GST Registration" },
 ];
 
 const features = [
@@ -82,26 +82,7 @@ const industries = [
   { icon: Truck, name: "Adhesives" },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "Their ultra-fine calcium carbonate transformed the finish quality of our coatings. Consistency batch after batch is exceptional.",
-    name: "Procurement Head",
-    company: "Leading Paints Manufacturer",
-  },
-  {
-    quote:
-      "Reliable bulk supply and tight specifications. Sandeep Mineral has become a core part of our polymer supply chain.",
-    name: "Operations Director",
-    company: "Polymer Compounding Co.",
-  },
-  {
-    quote:
-      "Excellent technical support and dependable logistics. A genuinely premium and trustworthy mineral partner.",
-    name: "Sourcing Manager",
-    company: "Construction Products Group",
-  },
-];
+const companyStrengths = whyChooseSMI.slice(0, 3);
 
 function Home() {
   const [search, setSearch] = useState("");
@@ -297,33 +278,23 @@ function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
+      {/* COMPANY STRENGTHS */}
       <section className="bg-muted py-20 md:py-28">
         <div className="container-px">
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
-              <span className="eyebrow">Client Testimonials</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">Trusted by manufacturers worldwide</h2>
+              <span className="eyebrow">Why Choose Us</span>
+              <h2 className="mt-3 text-3xl md:text-4xl">A practical, customer-focused approach</h2>
             </Reveal>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <Reveal key={i} delay={i * 0.1}>
-                <figure className="card-elegant flex h-full flex-col p-7">
+            {companyStrengths.map((strength, i) => (
+              <Reveal key={strength.title} delay={i * 0.1}>
+                <div className="card-elegant flex h-full flex-col p-7">
                   <Quote className="h-8 w-8 text-gold/40" />
-                  <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-foreground/85">
-                    "{t.quote}"
-                  </blockquote>
-                  <div className="mt-5 flex gap-0.5">
-                    {Array.from({ length: 5 }).map((_, s) => (
-                      <Star key={s} className="h-4 w-4 fill-gold text-gold" />
-                    ))}
-                  </div>
-                  <figcaption className="mt-4 border-t border-border pt-4">
-                    <div className="text-sm font-semibold text-navy">{t.name}</div>
-                    <div className="text-xs text-muted-foreground">{t.company}</div>
-                  </figcaption>
-                </figure>
+                  <h3 className="mt-4 text-base font-semibold text-navy">{strength.title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{strength.text}</p>
+                </div>
               </Reveal>
             ))}
           </div>

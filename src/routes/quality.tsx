@@ -23,16 +23,17 @@ import { labTests } from "@/lib/site-data";
 export const Route = createFileRoute("/quality")({
   head: () => ({
     meta: [
-      { title: "Quality & Laboratory Testing | ISO 9001:2015 — SMI" },
+      { title: "Quality Checks & Laboratory Testing | Sandeep Mineral Industries" },
       {
         name: "description",
         content:
-          "ISO 9001:2015 certified quality at SMI: particle size analysis, spectrophotometer, oil absorption, bulk density, chemical analysis, whiteness, brightness and pH testing.",
+          "Learn about Sandeep Mineral Industries' production-batch quality checks and laboratory testing capabilities.",
       },
       { property: "og:title", content: "Quality & Laboratory Testing | Sandeep Mineral Industries" },
-      { property: "og:description", content: "Eleven-point laboratory testing on every production lot." },
+      { property: "og:description", content: "Production batches are subject to quality checks designed to maintain consistency and meet customer requirements." },
       { property: "og:url", content: "/quality" },
       { property: "og:type", content: "article" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [{ rel: "canonical", href: "/quality" }],
   }),
@@ -59,20 +60,19 @@ function Quality() {
       <PageHero
         eyebrow="Quality"
         crumb="Quality"
-        title="Every batch proven in our laboratory"
-        subtitle="An ISO 9001:2015 certified quality system and an eleven-point in-house testing protocol confirm that each production lot performs exactly as specified."
+        title="Quality checks for consistent production"
+        subtitle="Every production batch is subject to quality checks designed to maintain consistency and meet customer requirements."
       />
 
-      {/* ISO BADGE */}
+      {/* QUALITY ASSURANCE */}
       <section className="bg-background py-16 md:py-20">
         <div className="container-px grid items-center gap-10 lg:grid-cols-2">
           <Reveal>
-            <span className="eyebrow">Certification</span>
-            <h2 className="mt-3 text-3xl md:text-4xl">ISO 9001:2015 Certified Company</h2>
+            <span className="eyebrow">Quality Assurance</span>
+            <h2 className="mt-3 text-3xl md:text-4xl">Quality checks at each production stage</h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-              Our quality management system is independently certified to ISO 9001:2015, covering
-              raw material intake, micronisation, laboratory verification, packaging and dispatch
-              across all three manufacturing units.
+              Every production batch is subject to quality checks designed to maintain consistency
+              and meet customer requirements.
             </p>
           </Reveal>
           <Reveal delay={0.1} className="flex lg:justify-end">
@@ -86,8 +86,8 @@ function Quality() {
         <div className="container-px">
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
-              <span className="eyebrow">Laboratory Testing Capabilities</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">Eleven tests behind every consignment</h2>
+              <span className="eyebrow">Quality Assurance</span>
+              <h2 className="mt-3 text-3xl md:text-4xl">Batch checks for consistent supply</h2>
             </Reveal>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

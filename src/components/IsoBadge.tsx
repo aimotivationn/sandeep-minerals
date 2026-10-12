@@ -21,9 +21,9 @@ export function IsoBadge({ compact = false }: { compact?: boolean }) {
         />
       </span>
       <span className="text-left">
-        <span className="block font-display text-lg font-extrabold text-navy">ISO 9001:2015</span>
+        <span className="block font-display text-lg font-extrabold text-navy">Quality Checks</span>
         <span className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          Certified Company
+          Production Batch Review
         </span>
       </span>
     </motion.div>

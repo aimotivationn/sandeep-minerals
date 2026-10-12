@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, Mail, MapPin, Linkedin, Facebook, Twitter, Instagram } from "lucide-react";
-import { products, CONTACT } from "@/lib/site-data";
+import { products, CONTACT, COMPANY } from "@/lib/site-data";
 
 import logo from "@/assets/logo.png";
 
@@ -24,8 +24,7 @@ export function Footer() {
           </Link>
 
           <p className="mt-4 text-sm leading-relaxed">
-            Delivering high-performance industrial minerals since 2005 — engineered for purity,
-            precision and consistency across global industries.
+            A family-run mineral manufacturing and processing business founded in Alwar, Rajasthan in {COMPANY.founded}, serving industrial customers across India.
           </p>
 
           <div className="mt-5 flex gap-3">

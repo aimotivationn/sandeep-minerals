@@ -12,10 +12,10 @@ export const Route = createFileRoute("/downloads")({
       {
         name: "description",
         content:
-          "Download the SMI company profile, technical data sheets, product brochures, safety data sheets and ISO 9001:2015 quality certificates.",
+          "Request the SMI company profile, product data sheets, brochures, safety data sheets and available quality documentation.",
       },
       { property: "og:title", content: "Download Center | Sandeep Mineral Industries" },
-      { property: "og:description", content: "Company profile, TDS, brochures, SDS and quality certificates." },
+      { property: "og:description", content: "Company profile, product information and available quality documentation." },
       { property: "og:url", content: "/downloads" },
       { property: "og:type", content: "article" },
     ],
