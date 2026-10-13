@@ -28,6 +28,14 @@ describe("client-approved public company profile", () => {
     expect(source).toContain("Sandeep Mineral Industries – 3rd Plant, Abu Road / Khara, Rajasthan 307026, India");
   });
 
+  test("assigns distinct slugs to all seven catalogue products", () => {
+    const productSlugs = [...source.matchAll(/slug:\s*"([^"]+)"/g)].map((match) => match[1]).slice(0, 7);
+    expect(productSlugs).toHaveLength(7);
+    expect(new Set(productSlugs).size).toBe(7);
+    expect(productSlugs).toContain("calcium-oxide");
+    expect(productSlugs).toContain("calcite-powder");
+  });
+
   test("does not state turnover, employee count, ISO certification, or owned-mine claims", () => {
     expect(source).not.toMatch(/₹\s*5|11\s*[–-]\s*25\s*employees|ISO\s*9001|Owned Mines|owned mining sources/i);
   });
