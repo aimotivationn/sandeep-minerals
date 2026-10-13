@@ -160,7 +160,7 @@ export const products: Product[] = [
     ],
   },
   {
-    slug: "calcite-powder",
+    slug: "calcium-oxide",
     name: "Calcium Oxide",
     short: "Calcium Oxide (CaO), also known as quicklime or burnt lime.",
     image: calciumOxideImg,

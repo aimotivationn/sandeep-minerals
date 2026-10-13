@@ -1,3 +1,0 @@
-- [x] Synchronize company identity, ownership, leadership, history, locations, infrastructure, quality, and business profile from the approved brief.
-- [x] Update matching homepage/About content and structured SEO data while preserving existing layouts and interactions.
-- [ ] Audit site-wide factual consistency, build status, and intentional omissions requiring client verification.
