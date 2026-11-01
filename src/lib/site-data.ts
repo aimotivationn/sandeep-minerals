@@ -227,7 +227,7 @@ export const COMPANY = {
   headquarters: "H-25/26, RIICO Industrial Area, Rajgarh, Alwar, Rajasthan 301408, India",
   leadership: [
     {
-      name: "Sandeep Jain",
+      name: "Rajiv Jain",
       role: "Marketing Manager",
       description:
         "Sandeep Jain leads marketing and customer-facing initiatives at Sandeep Mineral Industries, with a focus on client relationships, business development and distribution of the company's mineral products.",
@@ -312,7 +312,7 @@ export const units = [
   {
     n: "Unit 3",
     city: "Abu Road",
-    region: "Khara, Rajasthan 307026, India",
+    region: "Maval, Rajasthan 307026, India",
     address: "Sandeep Mineral Industries – 3rd Plant, Abu Road / Khara, Rajasthan 307026, India",
     mapQuery: "Sandeep Mineral Industries 3rd Plant Abu Road Khara Rajasthan 307026",
     x: "22%",
