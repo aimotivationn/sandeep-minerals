@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { TopBar } from "../components/layout/TopBar";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
+import { LogoMarquee } from "../components/LogoMarquee";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 import { ScrollToTop } from "../components/ScrollToTop";
 import { Toaster } from "../components/ui/sonner";
@@ -171,6 +172,7 @@ function RootComponent() {
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
         </main>
+        <LogoMarquee />
         <Footer />
       </div>
       <WhatsAppButton />

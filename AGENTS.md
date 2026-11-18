@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+Shared elements that need consistent placement across routes belong in the root layout so they stay aligned with the main content and footer.
