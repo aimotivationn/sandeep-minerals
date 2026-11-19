@@ -95,7 +95,7 @@ export const products: Product[] = [
   },
   {
     slug: "namo-carbshine",
-    name: "NAMO CARBSHINE",
+    name: "Namo Carbshine",
     short: "Ultra Fine Calcium Carbonate that replaces titanium dioxide by 20–25%.",
     image: namoImg,
     description:
@@ -228,9 +228,9 @@ export const COMPANY = {
   leadership: [
     {
       name: "Rajiv Jain",
-      role: "Marketing Manager",
+      role: "Managing Director",
       description:
-        "Sandeep Jain leads marketing and customer-facing initiatives at Sandeep Mineral Industries, with a focus on client relationships, business development and distribution of the company's mineral products.",
+        "Sandeep Jain leads managing customer-facing initiatives at Sandeep Mineral Industries, with a focus on client relationships, business development and distribution of the company's mineral products.",
     },
     {
       name: "Moti Lal Jain",
