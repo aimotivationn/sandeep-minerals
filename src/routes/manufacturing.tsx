@@ -106,7 +106,7 @@ function Manufacturing() {
 
           <Reveal delay={0.1}>
             <span className="eyebrow">Our Plants</span>
-            <h2 className="mt-3 text-3xl md:text-4xl">Built for scale across Rajasthan</h2>
+            <h2 className="mt-3 text-3xl md:text-4xl">Built for Scale Across Rajasthan</h2>
             <p className="mt-4 text-sm text-muted-foreground">
               Hover or tap a location on the map to highlight the unit.
             </p>
@@ -154,7 +154,7 @@ function Manufacturing() {
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="eyebrow">Production Flow</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">From mining to dispatch</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl">From Mining to Dispatch</h2>
             </Reveal>
           </div>
           <ProcessFlow />
@@ -269,7 +269,7 @@ function Manufacturing() {
           </Reveal>
           <Reveal delay={0.1}>
             <span className="eyebrow">By The Numbers</span>
-            <h2 className="mt-3 text-3xl md:text-4xl">Capacity you can count on</h2>
+            <h2 className="mt-3 text-3xl md:text-4xl">Capacity You Can Count On</h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               Founded in Alwar, Sandeep Mineral Industries has developed into a mineral processing
               and manufacturing business serving industrial customers from locations across Rajasthan.
@@ -298,7 +298,7 @@ function Manufacturing() {
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="eyebrow">Capabilities</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">From plant to port</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl">From Plant to Port</h2>
             </Reveal>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

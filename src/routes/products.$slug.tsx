@@ -89,7 +89,7 @@ export const Route = createFileRoute("/products/$slug")({
   },
   notFoundComponent: () => (
     <div className="container-px py-32 text-center">
-      <h1 className="text-3xl">Product not found</h1>
+      <h1 className="text-3xl">Product Not Found</h1>
       <Link to="/products" className="mt-6 inline-flex items-center gap-2 text-gold">
         <ArrowLeft className="h-4 w-4" /> Back to products
       </Link>
@@ -99,7 +99,7 @@ export const Route = createFileRoute("/products/$slug")({
     const router = useRouter();
     return (
       <div className="container-px py-32 text-center">
-        <h1 className="text-2xl">Something went wrong</h1>
+        <h1 className="text-2xl">Something Went Wrong</h1>
         <button
           onClick={() => {
             router.invalidate();
@@ -234,7 +234,7 @@ function ProductDetail() {
               <Reveal>
                 <span className="eyebrow">Key Highlights</span>
                 <h2 className="mt-3 text-3xl text-primary-foreground md:text-4xl">
-                  Performance that pays for itself
+                  Performance That Pays for Itself
                 </h2>
               </Reveal>
             </div>
@@ -306,7 +306,7 @@ function ProductDetail() {
         <div className={`container-px grid gap-10 ${product.specs.length > 0 ? "lg:grid-cols-[1.4fr_1fr]" : "lg:grid-cols-1"}`}>
           {product.specs.length > 0 && <Reveal>
             <span className="eyebrow">Technical Specifications</span>
-            <h2 className="mt-3 text-3xl md:text-4xl">Typical product data</h2>
+            <h2 className="mt-3 text-3xl md:text-4xl">Typical Product Data</h2>
             <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card shadow-card">
               <table className="w-full text-sm">
                 <tbody>
@@ -396,7 +396,7 @@ function ProductDetail() {
         <div className="container-px max-w-3xl">
           <Reveal>
             <span className="eyebrow">Frequently Asked Questions</span>
-            <h2 className="mt-3 text-3xl md:text-4xl">{product.name} — your questions answered</h2>
+            <h2 className="mt-3 text-3xl md:text-4xl">{product.name} — Your Questions Answered</h2>
           </Reveal>
           <div className="mt-10 space-y-4">
             {product.faqs.map((f, i) => (
@@ -417,7 +417,7 @@ function ProductDetail() {
       {/* RELATED PRODUCTS */}
       <section className="bg-muted py-20 md:py-28">
         <div className="container-px">
-          <h2 className="text-2xl md:text-3xl">Related products</h2>
+          <h2 className="text-2xl md:text-3xl">Related Products</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {others.map((p, i) => (
               <Reveal key={p.slug} delay={i * 0.08}>

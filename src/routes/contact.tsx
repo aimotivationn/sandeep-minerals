@@ -44,7 +44,7 @@ function Contact() {
       <PageHero
         eyebrow="Contact Us"
         crumb="Contact"
-        title="Let's discuss your mineral requirements"
+        title="Let's Discuss Your Mineral Requirements"
         subtitle="Reach out for product details, samples, quotes or bulk supply. Our team is ready to support your application."
       />
 
@@ -53,7 +53,7 @@ function Contact() {
           {/* INFO */}
           <Reveal className="lg:col-span-2">
             <span className="eyebrow">Corporate Headquarters</span>
-            <h2 className="mt-3 text-2xl md:text-3xl">Get in touch</h2>
+            <h2 className="mt-3 text-2xl md:text-3xl">Get in Touch</h2>
             <div className="mt-8 space-y-5">
               {[
                 { icon: MapPin, label: "Address", value: CONTACT.address },
@@ -84,7 +84,7 @@ function Contact() {
           {/* FORM */}
           <Reveal delay={0.1} className="lg:col-span-3">
             <form onSubmit={handleSubmit} className="card-elegant space-y-5 p-8">
-              <h3 className="text-xl">Send us an enquiry</h3>
+              <h3 className="text-xl">Send Us an Enquiry</h3>
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field label="Full Name" name="name" required />
                 <Field label="Company" name="company" />

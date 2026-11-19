@@ -23,31 +23,31 @@ export const Route = createFileRoute("/faq")({
 
 const faqs = [
   {
-    q: "What minerals do you manufacture and supply?",
+    q: "What Minerals Do You Manufacture and Supply?",
     a: "We specialize in baryte powder, ultra-fine calcium carbonate, super-fine calcium carbonate, and a range of imported specialty mineral powders for industrial applications.",
   },
   {
-    q: "Can I request product samples before ordering?",
+    q: "Can I Request Product Samples before Ordering?",
     a: "Yes. We provide samples for evaluation so you can validate the grade against your formulation. Contact our team with your application details to arrange a sample.",
   },
   {
-    q: "Do you offer custom grades and particle sizes?",
+    q: "Do You Offer Custom Grades and Particle Sizes?",
     a: "Absolutely. With micronizing and classification capabilities, we can tailor particle-size distribution and specifications to meet your technical requirements.",
   },
   {
-    q: "What is your minimum order quantity?",
+    q: "What Is Your Minimum Order Quantity?",
     a: "MOQ varies by product and grade. We serve both trial-scale and large bulk requirements. Share your needs and we'll advise the most suitable supply option.",
   },
   {
-    q: "How do you ensure batch-to-batch consistency?",
+    q: "How Do You Ensure Batch-to-Batch Consistency?",
     a: "Every batch is processed under defined QA protocols and verified by in-house laboratory testing for purity, brightness, particle size and moisture before dispatch.",
   },
   {
-    q: "Do you supply internationally?",
+    q: "Do You Supply Internationally?",
     a: "Yes. With export-ready packaging, documentation and reliable logistics, we supply customers across domestic and international markets.",
   },
   {
-    q: "What packaging options are available?",
+    q: "What Packaging Options Are Available?",
     a: "We offer standard 25kg and 50kg bags as well as jumbo (FIBC) bags, with options tailored to your handling and logistics preferences.",
   },
 ];
@@ -60,7 +60,7 @@ function FAQ() {
       <PageHero
         eyebrow="FAQ"
         crumb="FAQ"
-        title="Frequently asked questions"
+        title="Frequently Asked Questions"
         subtitle="Everything you need to know about our products, supply and capabilities. Can't find an answer? Get in touch."
       />
 

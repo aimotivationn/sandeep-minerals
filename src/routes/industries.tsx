@@ -45,7 +45,7 @@ function Industries() {
       <PageHero
         eyebrow="Industries We Serve"
         crumb="Industries"
-        title="Powering performance across eleven industries"
+        title="Powering Performance Across Eleven Industries"
         subtitle="From premium coatings to PVC pipes and pharmaceutical processing, our micronised minerals are trusted inputs in critical manufacturing processes in India and abroad."
       />
 

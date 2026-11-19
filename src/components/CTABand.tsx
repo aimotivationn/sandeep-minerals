@@ -10,7 +10,7 @@ export function CTABand() {
         <Reveal className="flex flex-col items-center gap-6 text-center">
           <span className="eyebrow">Partner With Us</span>
           <h2 className="max-w-3xl text-2xl text-primary-foreground md:text-4xl">
-            Ready to power your products with premium industrial minerals?
+            Ready to Power Your Products with Premium Industrial Minerals?
           </h2>
           <p className="max-w-xl text-primary-foreground/75">
             Talk to our specialists about grades, bulk supply and custom specifications tailored to

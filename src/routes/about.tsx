@@ -85,7 +85,7 @@ function About() {
           </Reveal>
           <Reveal delay={0.1}>
             <span className="eyebrow">Company Overview</span>
-            <h2 className="mt-3 text-3xl md:text-4xl">Mine to micron, engineered in Rajasthan</h2>
+            <h2 className="mt-3 text-3xl md:text-4xl">Mine to Micron, Engineered in Rajasthan</h2>
             <div className="mt-5 space-y-4 text-base leading-relaxed text-muted-foreground">
               {overviewParagraphs.map((p) => (
                 <p key={p}>{p}</p>
@@ -105,7 +105,7 @@ function About() {
             <Reveal>
               <span className="eyebrow">Company Highlights</span>
               <h2 className="mt-3 text-3xl text-primary-foreground md:text-4xl">
-                Scale, certification and reach
+                Scale, Certification and Reach
               </h2>
             </Reveal>
           </div>
@@ -130,7 +130,7 @@ function About() {
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="eyebrow">Our Journey</span>
-                <h2 className="mt-3 text-3xl md:text-4xl">A family-run business rooted in Alwar</h2>
+                <h2 className="mt-3 text-3xl md:text-4xl">A Family-Run Business Rooted in Alwar</h2>
             </Reveal>
           </div>
           <JourneyTimeline />
@@ -143,7 +143,7 @@ function About() {
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="eyebrow">Leadership</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">People behind Sandeep Mineral Industries</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl">People Behind Sandeep Mineral Industries</h2>
             </Reveal>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
@@ -173,7 +173,7 @@ function About() {
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="eyebrow">Raw Material Sourcing</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">Quality controlled from mine to micron</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl">Quality Controlled from Mine to Micron</h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
                 Sandeep Mineral Industries' Rajasthan business includes the primary location in
                 Rajgarh, Alwar and a third plant at Abu Road / Khara. The manufacturing process
@@ -262,7 +262,7 @@ function About() {
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="eyebrow">Core Values</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">The principles behind every batch</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl">The Principles Behind Every Batch</h2>
             </Reveal>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

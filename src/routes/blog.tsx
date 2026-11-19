@@ -114,7 +114,7 @@ function Blog() {
               <Mail className="h-6 w-6" />
             </div>
             <h2 className="mt-5 text-2xl text-primary-foreground md:text-3xl">
-              Subscribe to our newsletter
+              Subscribe to Our Newsletter
             </h2>
             <p className="mt-3 text-primary-foreground/70">
               Get the latest mineral insights, product updates and industry news in your inbox.

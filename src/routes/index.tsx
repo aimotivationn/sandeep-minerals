@@ -159,7 +159,7 @@ function Home() {
             <Reveal>
               <span className="eyebrow">Who We Are</span>
               <h2 className="mt-3 text-3xl md:text-4xl">
-                Mineral processing rooted in Alwar, Rajasthan
+                Mineral Processing Rooted in Alwar, Rajasthan
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground">
                 Sandeep Mineral Industries is a Rajasthan-based mineral manufacturer and processor
@@ -195,7 +195,7 @@ function Home() {
             <Reveal>
               <span className="eyebrow">Our Products</span>
               <h2 className="mt-3 max-w-xl text-3xl md:text-4xl">
-                Engineered mineral grades for every application
+                Engineered Mineral Grades for Every Application
               </h2>
             </Reveal>
             <Reveal className="w-full md:w-72">
@@ -252,7 +252,7 @@ function Home() {
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="eyebrow">Industries Served</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">Powering performance across sectors</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl">Powering Performance Across Sectors</h2>
             </Reveal>
           </div>
           <div className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
@@ -284,7 +284,7 @@ function Home() {
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="eyebrow">Why Choose Us</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">A practical, customer-focused approach</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl">A Practical, Customer-Focused Approach</h2>
             </Reveal>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">

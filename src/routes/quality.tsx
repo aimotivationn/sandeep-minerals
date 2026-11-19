@@ -60,7 +60,7 @@ function Quality() {
       <PageHero
         eyebrow="Quality"
         crumb="Quality"
-        title="Quality checks for consistent production"
+        title="Quality Checks for Consistent Production"
         subtitle="Every production batch is subject to quality checks designed to maintain consistency and meet customer requirements."
       />
 
@@ -69,7 +69,7 @@ function Quality() {
         <div className="container-px grid items-center gap-10 lg:grid-cols-2">
           <Reveal>
             <span className="eyebrow">Quality Assurance</span>
-            <h2 className="mt-3 text-3xl md:text-4xl">Quality checks at each production stage</h2>
+            <h2 className="mt-3 text-3xl md:text-4xl">Quality Checks at Each Production Stage</h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground">
               Every production batch is subject to quality checks designed to maintain consistency
               and meet customer requirements.
@@ -87,7 +87,7 @@ function Quality() {
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="eyebrow">Quality Assurance</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">Batch checks for consistent supply</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl">Batch Checks for Consistent Supply</h2>
             </Reveal>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -120,7 +120,7 @@ function Quality() {
             <Reveal>
               <span className="eyebrow">Controlled Process</span>
               <h2 className="mt-3 text-3xl text-primary-foreground md:text-4xl">
-                Quality checkpoints from mining to dispatch
+                Quality Checkpoints from Mining to Dispatch
               </h2>
             </Reveal>
           </div>

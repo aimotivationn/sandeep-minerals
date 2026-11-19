@@ -39,7 +39,7 @@ function ExportPackaging() {
       <PageHero
         eyebrow="Export & Packaging"
         crumb="Export & Packaging"
-        title="Export-ready supply, packed for the world"
+        title="Export-Ready Supply, Packed for the World"
         subtitle="From 25 kg bags to container-loaded bulk consignments, our packaging and logistics are built for safe, on-time delivery in India and across international markets."
       />
 
@@ -48,7 +48,7 @@ function ExportPackaging() {
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="eyebrow">Packaging Options</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">Standard and jumbo bag sizes</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl">Standard and Jumbo Bag Sizes</h2>
             </Reveal>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -72,7 +72,7 @@ function ExportPackaging() {
           <div className="mx-auto max-w-2xl text-center">
             <Reveal>
               <span className="eyebrow">Capabilities</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">Domestic dispatch to global shipping</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl">Domestic Dispatch to Global Shipping</h2>
             </Reveal>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

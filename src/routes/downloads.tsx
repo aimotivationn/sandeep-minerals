@@ -32,7 +32,7 @@ function Downloads() {
       <PageHero
         eyebrow="Download Center"
         crumb="Downloads"
-        title="Technical documentation on request"
+        title="Technical Documentation on Request"
         subtitle="Request the documents your procurement, formulation and compliance teams need — issued directly by our technical desk."
       />
 

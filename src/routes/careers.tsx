@@ -173,7 +173,7 @@ function Careers() {
         <div className="container-px">
           <Reveal className="max-w-2xl">
             <span className="eyebrow">Why Join Us</span>
-            <h2 className="mt-3 text-2xl md:text-3xl">A workplace built on people, precision and progress</h2>
+            <h2 className="mt-3 text-2xl md:text-3xl">A Workplace Built on People, Precision and Progress</h2>
           </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {whyJoin.map((item, i) => (
@@ -250,7 +250,7 @@ function Careers() {
         <div className="container-px grid gap-12 lg:grid-cols-5">
           <Reveal className="lg:col-span-2">
             <span className="eyebrow">General Application</span>
-            <h2 className="mt-3 text-2xl md:text-3xl">Submit your resume</h2>
+            <h2 className="mt-3 text-2xl md:text-3xl">Submit Your Resume</h2>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               Share your profile with our HR team. Applications are reviewed and retained for future
               openings across production, quality, engineering, commercial and support functions.
@@ -304,7 +304,7 @@ function Careers() {
                 encType="multipart/form-data"
                 className="card-elegant space-y-5 p-8"
               >
-                <h3 className="text-xl">Application form</h3>
+                <h3 className="text-xl">Application Form</h3>
 
                 {/* CHANGE: FormSubmit configuration hidden inputs (new) */}
                 <input type="hidden" name="_subject" value="New Career Application" />

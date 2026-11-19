@@ -43,7 +43,7 @@ function OurGoal() {
                 <Target className="h-7 w-7" />
               </div>
               <span className="eyebrow mt-6 block">Our Objectives</span>
-              <h2 className="mt-3 text-3xl md:text-4xl">Seven commitments we hold ourselves to</h2>
+              <h2 className="mt-3 text-3xl md:text-4xl">Seven Commitments We Hold Ourselves to</h2>
             </Reveal>
           </div>
 
