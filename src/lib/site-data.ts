@@ -230,7 +230,7 @@ export const COMPANY = {
       name: "Rajiv Jain",
       role: "Managing Director",
       description:
-        "Sandeep Jain leads managing customer-facing initiatives at Sandeep Mineral Industries, with a focus on client relationships, business development and distribution of the company's mineral products.",
+        "Sandeep Jain serves as the Managing Director of Sandeep Mineral Industries, providing strategic leadership and overseeing overall business operations. He drives the company’s growth initiatives, strengthens stakeholder relationships, and ensures the efficient production, distribution, and market expansion of the company's mineral products.",
     },
     {
       name: "Moti Lal Jain",
