@@ -13,7 +13,7 @@ export const Route = createFileRoute("/products/")({
       {
         name: "description",
         content:
-          "Explore Barytes Powder, Calcium Carbonate Powder, NAMO CARBSHINE, White Pigment Opacifier, Calcium Oxide, Calcite Granules and Calcite Powder / Other Minerals.",
+          "Explore Barytes Powder, Calcium Carbonate Powder, Namo Carbshine, White Pigment Opacifier, Calcium Oxide, Calcite Granules and Calcite Powder / Other Minerals.",
       },
       { property: "og:title", content: "Products | Sandeep Mineral Industries" },
       { property: "og:description", content: "SMI's confirmed industrial mineral product catalogue." },
