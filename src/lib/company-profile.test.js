@@ -19,7 +19,7 @@ describe("client-approved public company profile", () => {
   });
 
   test("uses the approved titles for both named leaders", () => {
-    expect(source).toMatch(/name:\s*"Sandeep Jain",\s*role:\s*"Marketing Manager"/s);
+    expect(source).toMatch(/name:\s*"Sandeep Jain",\s*role:\s*"Managing Director"/s);
     expect(source).toMatch(/name:\s*"Moti Lal Jain",\s*role:\s*"Proprietor"/s);
   });
 
